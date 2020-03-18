@@ -1,0 +1,15 @@
+h2,
+h3 {
+    &.light {
+        color: map-get($grey, "darken-4");
+    }
+}
+
+h2 {
+    margin: 0 0 map-get($spaces, "double");
+    text-align: center;
+}
+
+h4 {
+    margin: map-get($spaces, "onehalf") 0;
+}

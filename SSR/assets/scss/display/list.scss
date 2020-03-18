@@ -1,0 +1,20 @@
+ul.list {
+    li {
+        margin: map-get($spaces, "half") 0;
+    }
+
+    &--checklist {
+        padding: 0;
+
+        li {
+            display: flex;
+        }
+
+        li:before {
+            content: "\F134";
+            display: block;
+            margin-right: map-get($spaces, "half");
+            font-family: "Material Design Icons";
+        }
+    }
+}
