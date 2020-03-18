@@ -1,0 +1,46 @@
+{
+  "name": "melbourne-ride",
+  "private": true,
+  "version": "1.0.0",
+  "description": "An experiment on setting up a local server and creating SSR pages.",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lbarnes-cs/melbourne-ride.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/lbarnes-cs/melbourne-ride#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "vue-router": "^3.1.6"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "6.0.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "node-sass": "^4.13.1",
+    "prettier": "1.19.1",
+    "sass-loader": "^8.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended",
+      "@vue/prettier"
+    ],
+    "parser": "vue-eslint-parser"
+  }
+}

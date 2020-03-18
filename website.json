@@ -1,0 +1,139 @@
+{
+  "supporters": [
+    {
+      "title": "Federation Square",
+      "content": "Mauris feugiat est a velit fringilla, id viverra sapien molestie. Pellentesque fermentum massa non rhoncus convallis. Nulla molestie eget urna a consequat. Morbi mattis vel orci quis tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla aliquet sit amet orci ac ultrices. Sed metus nunc, lobortis quis hendrerit at, pharetra a purus. Praesent elit neque, maximus in ultrices at, ultrices vel odio.",
+      "url_link": "https://fedsquare.com/",
+      "image": "image.jpg"
+    },
+    {
+      "title": "Melbourne City Council",
+      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor. Integer consequat neque nec turpis semper, non vestibulum ex vehicula. Fusce malesuada vel est quis commodo.</p><p>Nulla at nulla sit amet justo convallis suscipit et tincidunt urna. Praesent tincidunt a urna sit amet molestie. Nunc eu turpis porta urna porta rhoncus non non velit. Nunc ultrices nisi bibendum, tempus mi a, sollicitudin odio. Fusce nulla mauris, blandit mattis feugiat non, mollis non ex. Sed in neque urna. Fusce varius diam quis semper pharetra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>",
+      "url_link": "https://www.melbourne.vic.gov.au/",
+      "image": "image.jpg"
+    },
+    {
+      "title": "Company name here",
+      "content": "Proin pharetra blandit nisl, sed lacinia orci pretium eu. Sed pharetra purus consectetur eros scelerisque, id sagittis eros faucibus. Nam libero orci, consectetur eu tortor sit amet, sodales posuere nibh. Praesent id est eu nulla lobortis tempus id imperdiet lacus. Cras vulputate ex et ultricies placerat. Praesent finibus ultrices euismod. Integer egestas condimentum auctor.",
+      "url_link": "Link",
+      "image": "image.jpg"
+    },
+    {
+      "title": "Next company name",
+      "content": "Pellentesque nec dui non magna sodales iaculis ac id erat. Donec sodales lectus in nisi dapibus laoreet. Cras vel sem quis enim consectetur porta id ac purus. Etiam pharetra erat eu diam euismod blandit. Ut lacinia odio non lacus interdum, ut accumsan ex mattis.",
+      "url_link": "Link",
+      "image": "image.jpg"
+    }
+  ],
+  "faqs": [
+    {
+      "title": "Who organises the Melbourne Ride?",
+      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
+    },
+    {
+      "title": "How do I join the Melbourne Ride?",
+      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p><p>Praesent id est eu nulla lobortis tempus id imperdiet lacus. Cras vulputate ex et ultricies placerat. Praesent finibus ultrices euismod. Integer egestas condimentum auctor</p>"
+    },
+    {
+      "title": "What is the route?",
+      "content": "<p>Vivamus blandit blandit nulla ut scelerisque. Morbi accumsan erat quam, id iaculis elit faucibus sit amet. Sed id pellentesque lectus, non tincidunt arcu.</p><p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p><p>Sed pharetra purus consectetur eros scelerisque, id sagittis eros faucibus. Nam libero orci, consectetur eu tortor sit amet, sodales posuere nibh</p>"
+    },
+    {
+      "title": "Where do I get further information?",
+      "content": "<p>Nulla at nulla sit amet justo convallis suscipit et tincidunt urna. Praesent tincidunt a urna sit amet molestie.</p><p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
+    },
+    {
+      "title": "I would like to volunteer, how can I help?",
+      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
+    },
+    {
+      "title": "I would like to interview someone from Melbourne Ride, who do I contact?",
+      "content": "<p>Pellentesque cursus imperdiet sapien eu pulvinar. Integer eget orci mi. Vestibulum erat nisl, commodo in mi et, placerat ultrices lacus.</p><p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
+    }
+  ],
+  "event": {
+    "title": "Melbourne Ride",
+    "location_url_link": "https://goo.gl/maps/TASPyobo8CZG33dVA",
+    "location": "Federation Square",
+    "date_and_time": "2020-10-01 10:00:00",
+    "content": "<p>More information about the ride is coming soon</p><p>Please follow us on social media to get the latest up to date information</p><p>We are looking forward to seeing you in October</p>",
+    "content_builder": [
+      {
+        "title": "How to prepare for the ride",
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu tortor mattis, sollicitudin dui vitae, iaculis mi.Praesent semper est vel sem feugiat luctus. Sed tincidunt luctus scelerisque.</p><p><!--more--></p><p>Quisque pharetra convallis risus sit amet tincidunt. Fusce quis ex a massa vestibulum blandit. Nam condimentum commodo bibendum. Donec sed vehicula ipsum, et condimentum sem. Vivamus ante lacus, rhoncus ac quam vel, dapibus maximus risus. Morbi in commodo augue. Etiam consequat sagittis lorem a imperdiet. Nullam eu bibendum odio. Vivamus tempor augue eget odio vestibulum, eu ultrices quam gravida.</p><p>Aliquam vitae fermentum felis, eu egestas lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus rhoncus lacinia vulputate. Praesent efficitur augue vel ligula laoreet, at luctus lacus malesuada. Suspendisse convallis nulla odio, non pretium ipsum rutrum viverra. Nullam eget blandit elit. Fusce a rutrum felis, nec porttitor massa.</p><p>Donec in mi mollis, molestie massa in, tempor lacus. Pellentesque dignissim sed tellus sit amet vestibulum. Vivamus vulputate magna mauris, quis bibendum quam faucibus maximus. Ut mattis viverra dui. Nulla malesuada fringilla risus, nec pharetra nisi pretium non. Phasellus tincidunt nisi sit amet lectus tincidunt, quis sagittis eros placerat. Donec vitae tempor tortor, id euismod justo. Morbi at egestas ligula. Maecenas feugiat fermentum felis, a varius nunc luctus sit amet. Praesent in posuere sapien.</p>"
+      },
+      {
+        "title": "Where to meet",
+        "content": "<p>Donec in mi mollis, molestie massa in, tempor lacus. Pellentesque dignissim sed tellus sit amet vestibulum. Vivamus vulputate magna mauris, quis bibendum quam faucibus maximus.</p><p>Ut mattis viverra dui. Nulla malesuada fringilla risus, nec pharetra nisi pretium non. Phasellus tincidunt nisi sit amet lectus tincidunt, quis sagittis eros placerat. Donec vitae tempor tortor, id euismod justo. Morbi at egestas ligula. Maecenas feugiat fermentum felis, a varius nunc luctus sit amet. Praesent in posuere sapien.</p><p><!--more--></p><p>Quisque pharetra convallis risus sit amet tincidunt. Fusce quis ex a massa vestibulum blandit. Nam condimentum commodo bibendum. Donec sed vehicula ipsum, et condimentum sem. Vivamus ante lacus, rhoncus ac quam vel, dapibus maximus risus. Morbi in commodo augue. Etiam consequat sagittis lorem a imperdiet. Nullam eu bibendum odio. Vivamus tempor augue eget odio vestibulum, eu ultrices quam gravida.</p><p>Aliquam vitae fermentum felis, eu egestas lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus rhoncus lacinia vulputate. Praesent efficitur augue vel ligula laoreet, at luctus lacus malesuada. Suspendisse convallis nulla odio, non pretium ipsum rutrum viverra. Nullam eget blandit elit. Fusce a rutrum felis, nec porttitor massa.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu tortor mattis, sollicitudin dui vitae, iaculis mi. Praesent semper est vel sem feugiat luctus. Sed tincidunt luctus scelerisque.</p>"
+      },
+      {
+        "title": "How to support us",
+        "content": "<p>Proin pharetra blandit nisl, sed lacinia orci pretium eu. Sed pharetra purus consectetur eros scelerisque, id sagittis eros faucibus. Nam libero orci, consectetur eu tortor sit amet, sodales posuere nibh.</p><p><!--more--></p><p>Praesent id est eu nulla lobortis tempus id imperdiet lacus. Cras vulputate ex et ultricies placerat. Praesent finibus ultrices euismod. Integer egestas condimentum auctor. Pellentesque nec dui non magna sodales iaculis ac id erat. Donec sodales lectus in nisi dapibus laoreet</p><p>Curabitur consequat arcu vitae purus pellentesque, ac eleifend risus lacinia. Fusce sit amet erat et dui rhoncus euismod. Maecenas lobortis ligula non euismod ultricies. Praesent nulla metus, viverra et felis vel, congue pellentesque sem. Pellentesque cursus imperdiet sapien eu pulvinar. Integer eget orci mi. Vestibulum erat nisl, commodo in mi et, placerat ultrices lacus.</p><p>Mauris sed vulputate arcu. Vivamus blandit blandit nulla ut scelerisque. Morbi accumsan erat quam, id iaculis elit faucibus sit amet. Sed id pellentesque lectus, non tincidunt arcu.</p><p>Mauris feugiat est a velit fringilla, id viverra sapien molestie. Pellentesque fermentum massa non rhoncus convallis. Nulla molestie eget urna a consequat. Morbi mattis vel orci quis tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla aliquet sit amet orci ac ultrices. Sed metus nunc, lobortis quis hendrerit at, pharetra a purus. Praesent elit neque, maximus in ultrices at, ultrices vel odio.</p>"
+      }
+    ]
+  },
+  "history": {
+    "title": "A short History",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu tortor mattis, sollicitudin dui vitae, iaculis mi. Praesent semper est vel sem feugiat luctus. Sed tincidunt luctus scelerisque. Quisque pharetra convallis risus sit amet tincidunt. Fusce quis ex a massa vestibulum blandit. Nam condimentum commodo bibendum. Donec sed vehicula ipsum, et condimentum sem. Vivamus ante lacus, rhoncus ac quam vel, dapibus maximus risus. Morbi in commodo augue. Etiam consequat sagittis lorem a imperdiet. Nullam eu bibendum odio. Vivamus tempor augue eget odio vestibulum, eu ultrices quam gravida.</p><p>Aliquam vitae fermentum felis, eu egestas lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus rhoncus lacinia vulputate. Praesent efficitur augue vel ligula laoreet, at luctus lacus malesuada. Suspendisse convallis nulla odio, non pretium ipsum rutrum viverra. Nullam eget blandit elit. Fusce a rutrum felis, nec porttitor massa.</p><p>Donec in mi mollis, molestie massa in, tempor lacus. Pellentesque dignissim sed tellus sit amet vestibulum. Vivamus vulputate magna mauris, quis bibendum quam faucibus maximus. Ut mattis viverra dui. Nulla malesuada fringilla risus, nec pharetra nisi pretium non. Phasellus tincidunt nisi sit amet lectus tincidunt, quis sagittis eros placerat. Donec vitae tempor tortor, id euismod justo. Morbi at egestas ligula. Maecenas feugiat fermentum felis, a varius nunc luctus sit amet. Praesent in posuere sapien.</p>"
+  },
+  "aims": [
+    {
+      "title": "Safety",
+      "color": "yellow lighten-2",
+      "icon": "cycling",
+      "text": "Highlight the vulnerability of cyclists to motorists who appear blind to our presence"
+    },
+    {
+      "title": "Environment",
+      "color": "light-green lighten-2",
+      "icon": "save",
+      "text": "Protest against transport powered by non sustainable forms of energy"
+    },
+    {
+      "title": "Body Positivity",
+      "color": "pink lighten-2",
+      "icon": "yoga",
+      "text": "Healthy body and healthy mind by fitness and exercise"
+    }
+  ],
+  "facts": {
+    "title": "Facts about cylist safety in Australia",
+    "intro": "In 2017, the Bike Network released a report about cyclist safety and collisions from 2012 and 2016. These are some of the more intresting facts",
+    "source": "Report is related to data collected within 2012-2016 in Australia by Bicycle Network",
+    "link": "https://www.bicyclenetwork.com.au/newsroom/2017/08/01/crash-report-riding-bike-safer-sitting-chair/",
+    "list": [
+      {
+        "icon": "",
+        "fact": "Crashes are most common during peak hour but the number of crashes in the morning almost double the afternoon numbers. So make sure you get your coffee hit first before you start your morning commute to stay alert!"
+      },
+      {
+        "icon": "",
+        "fact": "The majority of crashes actually happen when you least expect it. Bicycle Network worked out that 81.4% of crashes happen when the weather is fine and 70.7% when the road is flat. "
+      },
+      {
+        "icon": "",
+        "fact": "People tend to ride more in the summer months so it's no surprise that crashes reduce during the colder months but then increase in Spring with October (only in Straya) being the month with the most crashes."
+      },
+      {
+        "icon": "",
+        "fact": "It is well known that intersections pose a high risk for people who ride bikes. Therefore it is no surprise that intersections remain the highest risk area with 42.8% of crashes. Make sure you stop at red lights and watch out for those trams Melburnians!"
+      },
+      {
+        "icon": "",
+        "fact": "Only 20.9% of crashes occur in environments where there are no vehicles highlighting the importance of separation."
+      },
+      {
+        "icon": "",
+        "fact": "13.8% of the crashes happened at low speed where the rider was going less than 11km/h and almost half of crashes (46.1%) occurred where the rider was travelling less than 21km/h. The exception being if you are prone to attempting crazy stunts on Melbourne Bicycles."
+      },
+      {
+        "icon": "",
+        "fact": "It's not all bad news, the chances of actually having a crash is extremely small. Less than 1% cyclists crash each year and from this only 0.001% end up in hospital on any given day. We still recommend keeping a spare first aid kit in your bike bag at all times just in case!"
+      },
+      {
+        "icon": "",
+        "fact": "Nearly half of crashes are reported to the police (47.6%) and when a report occurs 24.4% describe the experience as negative."
+      }
+    ]
+  }
+}
