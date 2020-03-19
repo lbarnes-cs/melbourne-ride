@@ -43,12 +43,11 @@ export default {
     }
 
     &__container {
-        padding: map-get($spaces, "one") map-get($spaces, "onehalf");
-
         @media #{map-get(
             $display-breakpoints,
             "md-and-up"
         )} {
+            padding: map-get($spaces, "one") map-get($spaces, "onehalf");
             background: rgba(map-get($grey, "darken-4"), 0.8);
             border-radius: map-get($spaces, "half");
         }

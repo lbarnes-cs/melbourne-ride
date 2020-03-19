@@ -127,45 +127,64 @@ export default {
         background-repeat: repeat-x;
         height: 50px;
         width: 100%;
-        background-size: 20%;
+        background-size: 50%;
         position: absolute;
         left: 0;
         bottom: 0;
         z-index: 2;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            background-size: 20%;
+        }
     }
 
     &__tree {
         width: 220px;
-        height: 290px;
+        height: 270px;
         bottom: 10px;
         right: 0;
         z-index: 0;
         position: absolute;
         background: url("~assets/images/design/tree.png") no-repeat;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            height: 290px;
+        }
     }
 
     &__sun {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         position: absolute;
         top: map-get($spaces, "onehalf");
-        left: 0;
+        left: map-get($spaces, "one");
         background: url("~assets/svg/sun.svg") no-repeat;
         transition: all 0.5s linear;
 
         &:hover {
             animation: spin 3s linear infinite;
         }
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            width: 140px;
+            height: 140px;
+            left: 0;
+        }
     }
 
     &__bike {
-        width: 165px;
-        height: 100px;
+        width: 150px;
+        height: 80px;
         position: absolute;
         bottom: 0;
         right: 25px;
         background: url("~assets/svg/bike-blue.svg") no-repeat;
         z-index: 1;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            height: 100px;
+            width: 165px;
+        }
     }
 }
 

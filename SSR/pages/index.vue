@@ -66,5 +66,6 @@ export default {
 .contentContainer {
     position: relative;
     z-index: 1;
+    background: map-get($grey, "darken-4");
 }
 </style>

@@ -38,9 +38,13 @@ export default {
 .heroBanner {
     width: 100%;
     overflow: hidden;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 56px);
     background: map-get($blue, "lighten-3");
     position: relative;
+
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+        height: calc(100vh - 64px);
+    }
 
     .content {
         position: relative;
@@ -50,22 +54,34 @@ export default {
     .city {
         width: 100%;
         position: fixed;
-        bottom: 100px;
+        bottom: 70px;
         z-index: 0;
         left: 0;
-        height: 600px;
+        height: 400px;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            bottom: 100px;
+            height: 600px;
+        }
     }
 
     .skyline {
-        background-image: url("~assets/images/design/city-skyline.png");
-        background-size: contain;
+        background-image: url("~assets/images/design/city-skyline-mobile.png");
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center bottom;
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: 1;
-        bottom: 100px;
+        bottom: 40px;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            background-image: url("~assets/images/design/city-skyline.png");
+            background-size: contain;
+
+            bottom: 70px;
+        }
     }
 
     .lamps {
@@ -83,10 +99,14 @@ export default {
         animation: tram 14s ease-in-out infinite;
         position: absolute;
         background: url("~assets/svg/tram.svg") 0 0 no-repeat;
-        bottom: 12px;
+        bottom: -2px;
         z-index: 5;
         height: 85px;
         width: 100%;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            bottom: 10px;
+        }
     }
 
     .river {
@@ -95,10 +115,16 @@ export default {
         bottom: 0;
         z-index: 0;
         left: 0;
-        height: 100px;
-        background: url("~assets/svg/river.svg") repeat-x;
+        height: 40px;
+        background-size: cover;
+        background-image: url("~assets/svg/river.svg");
+        background-repeat: repeat-x;
         animation: river 100s linear infinite;
         animation-delay: 1s;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            height: 70px;
+        }
     }
 
     .gravel {
@@ -108,11 +134,12 @@ export default {
         z-index: 1;
         bottom: 0;
         left: 0;
-        height: 100px;
+        height: 70px;
         width: 100%;
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
             background-size: 50%;
+            height: 100px;
         }
     }
 
@@ -121,9 +148,13 @@ export default {
         background: url("~assets/svg/shrubs.svg") repeat-x;
         position: absolute;
         width: 100%;
-        bottom: 95px;
+        top: -25px;
         z-index: 3;
         left: 0;
+
+        @media #{map-get($display-breakpoints, 'md-and-up')} {
+            top: -20px;
+        }
     }
 }
 

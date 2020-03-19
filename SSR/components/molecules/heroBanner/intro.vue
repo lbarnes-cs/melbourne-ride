@@ -1,8 +1,8 @@
 <template>
     <v-container class="content">
-        <h1 class="display-4">Melbourne <span>Ride</span></h1>
+        <h1>Melbourne <span>Ride</span></h1>
 
-        <div class="actions">
+        <div class="actions hidden-xs-only">
             <ActionCard
                 link="#event"
                 hover
@@ -48,27 +48,26 @@ export default {
         font-family: "Roboto", sans-serif;
         letter-spacing: -0.015em;
         font-weight: 700;
+        font-size: 3.5rem;
+        line-height: 1.2;
 
         span {
             color: map-get($red, "darken-1");
+        }
+
+        @media #{map-get($display-breakpoints, 'sm-and-up')} {
+            font-size: 5rem;
         }
     }
 }
 
 .actions {
     display: flex;
-    flex-direction: column;
-
-    @media #{map-get($display-breakpoints, 'sm-and-up')} {
-        justify-content: center;
-        flex-direction: row;
-    }
+    justify-content: center;
 
     .actionCard {
+        margin: 0 map-get($spaces, "one");
         width: 250px;
-        @media #{map-get($display-breakpoints, 'sm-and-up')} {
-            margin: 0 map-get($spaces, "one");
-        }
     }
 }
 </style>
