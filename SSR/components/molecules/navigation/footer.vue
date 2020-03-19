@@ -2,8 +2,11 @@
     <v-footer padless class="footer">
         <v-row no-gutters>
             <v-col cols="12" class="footerAnime">
+                <Clouds small />
                 <v-container class="footerAnime__container">
+                    <span class="footerAnime__sun" />
                     <span class="footerAnime__tree" />
+                    <span class="footerAnime__bike" />
                 </v-container>
                 <div class="footerAnime__grass"></div>
             </v-col>
@@ -57,9 +60,14 @@
 
 <script>
 import { socialMedia } from "@/data/navigation-config";
+import Clouds from "@/components/atoms/designElements/clouds.vue";
 
 export default {
     name: "Footer",
+
+    components: {
+        Clouds,
+    },
 
     props: {
         menu: {
@@ -79,6 +87,8 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
+    position: relative;
+
     &__secondary {
         flex-direction: column-reverse;
 
@@ -107,7 +117,8 @@ export default {
 
     &__container {
         position: relative;
-        height: 300px;
+        z-index: 2;
+        height: 350px;
     }
 
     &__grass {
@@ -120,16 +131,47 @@ export default {
         position: absolute;
         left: 0;
         bottom: 0;
+        z-index: 2;
     }
 
     &__tree {
-        width: 200px;
-        height: 270px;
-        bottom: 0;
+        width: 220px;
+        height: 290px;
+        bottom: 10px;
         right: 0;
         z-index: 0;
         position: absolute;
         background: url("~assets/images/design/tree.png") no-repeat;
+    }
+
+    &__sun {
+        width: 140px;
+        height: 140px;
+        position: absolute;
+        top: map-get($spaces, "onehalf");
+        left: 0;
+        background: url("~assets/svg/sun.svg") no-repeat;
+        transition: all 0.5s linear;
+
+        &:hover {
+            animation: spin 3s linear infinite;
+        }
+    }
+
+    &__bike {
+        width: 165px;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
+        right: 25px;
+        background: url("~assets/svg/bike-blue.svg") no-repeat;
+        z-index: 1;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
     }
 }
 </style>

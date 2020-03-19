@@ -1,5 +1,6 @@
 <template>
-    <svg-icon :name="iconName" />
+    <!-- <svg-icon :name="iconName" /> -->
+    <div>{{ iconName }}</div>
 </template>
 
 <script>
