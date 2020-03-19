@@ -1,16 +1,20 @@
 <template lang="html">
     <div>
-        <Aim :aims="aims" />
-        <About />
-        <Event :event="event" />
-        <History :history="history" />
-        <FAQs :faqs="faqs" />
-        <Supporters :supporters="supporters" />
+        <HeroBanner />
+        <div class="contentContainer">
+            <Aim :aims="aims" />
+            <About />
+            <Event :event="event" />
+            <History :history="history" />
+            <FAQs :faqs="faqs" />
+            <Supporters :supporters="supporters" />
+        </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import HeroBanner from "@/components/organisms/heroBanner.vue";
 import Aim from "@/components/organisms/aim.vue";
 import About from "@/components/organisms/about.vue";
 import Event from "@/components/organisms/event.vue";
@@ -21,6 +25,7 @@ import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
     components: {
+        HeroBanner,
         Aim,
         About,
         Event,
@@ -56,3 +61,10 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.contentContainer {
+    position: relative;
+    z-index: 1;
+}
+</style>

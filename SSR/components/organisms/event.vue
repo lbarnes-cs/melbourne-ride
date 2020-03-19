@@ -6,83 +6,38 @@
 
             <v-row>
                 <v-col cols="12" md="4">
-                    <v-card
+                    <ActionCard
                         v-if="event.location"
-                        :href="event.location_url_link"
-                        target="_blank"
+                        :link="event.location_url_link"
                         hover
                         color="light-blue darken-1"
-                        class="eventCard"
-                    >
-                        <v-icon
-                            color="grey lighten-4"
-                            large
-                            class="eventCard__icon"
-                        >
-                            mdi-map-marker
-                        </v-icon>
-                        <div>
-                            <v-card-subtitle class="eventCard__title">
-                                Meeting Area
-                            </v-card-subtitle>
-                            <v-card-title class="eventCard__content">
-                                {{ event.location }}
-                            </v-card-title>
-                        </div>
-                    </v-card>
+                        icon="map-marker"
+                        title="Meeting Area"
+                        :content="event.location"
+                    />
 
-                    <v-card
+                    <ActionCard
                         v-if="event.date_and_time"
                         color="blue-grey lighten-5"
-                        class="eventCard"
+                        icon="calendar"
+                        title="Date"
+                        :content="
+                            formateDate(
+                                event.date_and_time,
+                                'cccc, do MMMM yyyy',
+                            )
+                        "
                         light
-                    >
-                        <v-icon
-                            color="grey darken-1"
-                            large
-                            class="eventCard__icon"
-                        >
-                            mdi-calendar
-                        </v-icon>
-                        <div>
-                            <v-card-subtitle class="eventCard__title">
-                                Date
-                            </v-card-subtitle>
-                            <v-card-title class="eventCard__content">
-                                {{
-                                    formateDate(
-                                        event.date_and_time,
-                                        "cccc, do MMMM yyyy",
-                                    )
-                                }}
-                            </v-card-title>
-                        </div>
-                    </v-card>
+                    />
 
-                    <v-card
+                    <ActionCard
                         v-if="event.date_and_time"
                         color="blue-grey lighten-5"
-                        class="eventCard"
+                        icon="clock"
+                        title="Start time"
+                        :content="formateDate(event.date_and_time, 'H:mm aaa')"
                         light
-                    >
-                        <v-icon
-                            color="grey darken-1"
-                            large
-                            class="eventCard__icon"
-                        >
-                            mdi-clock
-                        </v-icon>
-                        <div>
-                            <v-card-subtitle class="eventCard__title">
-                                Start time
-                            </v-card-subtitle>
-                            <v-card-title class="eventCard__content">
-                                {{
-                                    formateDate(event.date_and_time, "H:mm aaa")
-                                }}
-                            </v-card-title>
-                        </div>
-                    </v-card>
+                    />
                 </v-col>
                 <v-col cols="12" md="8">
                     <div
@@ -106,12 +61,14 @@ import { parseISO } from "date-fns";
 import { format } from "date-fns-tz";
 import { enAU } from "date-fns/locale";
 import EventSection from "@/components/molecules/event/section.vue";
+import ActionCard from "@/components/molecules/card/actionCard.vue";
 
 export default {
     name: "Event",
 
     components: {
         EventSection,
+        ActionCard,
     },
 
     props: {
@@ -153,28 +110,6 @@ export default {
 
     &__summary p:nth-child(2) {
         font-size: 1.3em;
-        line-height: 1.4;
-    }
-}
-
-.eventCard {
-    display: flex;
-    align-items: flex-start;
-    padding: map-get($spaces, "one");
-    margin: 0 0 map-get($spaces, "onehalf");
-
-    &__icon {
-        margin-right: map-get($spaces, "one");
-    }
-
-    &__title {
-        padding: 0;
-        text-transform: uppercase;
-    }
-
-    &__content {
-        padding: 0;
-        word-break: break-word;
         line-height: 1.4;
     }
 }
