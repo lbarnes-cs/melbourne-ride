@@ -1,12 +1,12 @@
 <template>
     <v-container class="content">
-        <h1>Melbourne <span>Ride</span></h1>
+        <SVGIcon icon-name="melbourne-ride-logo" class="logo" />
 
         <div class="actions hidden-xs-only">
             <ActionCard
                 link="#event"
                 hover
-                color="light-blue lighten-1"
+                color="red darken-4"
                 icon="bike"
                 title="Find out more"
                 content="2020 Ride Info"
@@ -17,7 +17,7 @@
                 link="https://facebook.com"
                 hover
                 new-window
-                color="red lighten-1"
+                color="light-blue darken-4"
                 icon="facebook"
                 title="RSVP On"
                 content="Facebook"
@@ -28,12 +28,14 @@
 </template>
 
 <script>
+import SVGIcon from "@/components/atoms/icons/SVGIcon.vue";
 import ActionCard from "@/components/molecules/card/actionCard.vue";
 
 export default {
     name: "IntroBanner",
 
     components: {
+        SVGIcon,
         ActionCard,
     },
 };
@@ -41,23 +43,12 @@ export default {
 
 <style lang="scss" scoped>
 .content {
-    h1 {
-        text-align: center;
-        margin: map-get($spaces, "triple") 0 map-get($spaces, "double");
-        color: map-get($blue, "darken-1");
-        font-family: "Roboto", sans-serif;
-        letter-spacing: -0.015em;
-        font-weight: 700;
-        font-size: 3.5rem;
-        line-height: 1.2;
-
-        span {
-            color: map-get($red, "darken-1");
-        }
-
-        @media #{map-get($display-breakpoints, 'sm-and-up')} {
-            font-size: 5rem;
-        }
+    .logo {
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: map-get($spaces, "double") 0;
     }
 }
 
