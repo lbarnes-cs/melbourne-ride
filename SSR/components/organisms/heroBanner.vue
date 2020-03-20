@@ -6,6 +6,9 @@
             <Clouds />
 
             <div class="gravel">
+                <Bike class="hidden-sm-and-down" />
+                <BikeMale />
+                <BikeFemale />
                 <div class="shrubs"></div>
             </div>
 
@@ -23,6 +26,9 @@
 <script>
 import Clouds from "@/components/atoms/designElements/clouds.vue";
 import Intro from "@/components/molecules/heroBanner/intro.vue";
+import Bike from "@/components/molecules/heroBanner/bike.vue";
+import BikeMale from "@/components/molecules/heroBanner/bike-male.vue";
+import BikeFemale from "@/components/molecules/heroBanner/bike-female-1.vue";
 
 export default {
     name: "HeroBanner",
@@ -30,6 +36,9 @@ export default {
     components: {
         Clouds,
         Intro,
+        Bike,
+        BikeMale,
+        BikeFemale,
     },
 };
 </script>
@@ -39,7 +48,7 @@ export default {
     width: 100%;
     overflow: hidden;
     height: calc(100vh - 56px);
-    background: map-get($blue, "lighten-3");
+    background: map-get($light-blue, "darken-1");
     position: relative;
 
     @media #{map-get($display-breakpoints, 'md-and-up')} {
@@ -60,7 +69,7 @@ export default {
         height: 400px;
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
-            bottom: 100px;
+            bottom: 80px;
             height: 600px;
         }
     }
@@ -79,8 +88,7 @@ export default {
         @media #{map-get($display-breakpoints, 'md-and-up')} {
             background-image: url("~assets/images/design/city-skyline.png");
             background-size: contain;
-
-            bottom: 70px;
+            bottom: 80px;
         }
     }
 
@@ -102,10 +110,14 @@ export default {
         bottom: -2px;
         z-index: 5;
         height: 85px;
-        width: 100%;
+        width: 365px;
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
-            bottom: 10px;
+            bottom: 9px;
+        }
+
+        @media #{map-get($display-breakpoints, 'lg-and-up')} {
+            bottom: 12px;
         }
     }
 
@@ -116,14 +128,15 @@ export default {
         z-index: 0;
         left: 0;
         height: 40px;
-        background-size: cover;
+        background-color: #21b5a3;
+        background-size: contain;
         background-image: url("~assets/svg/river.svg");
         background-repeat: repeat-x;
         animation: river 100s linear infinite;
         animation-delay: 1s;
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
-            height: 70px;
+            height: 80px;
         }
     }
 
@@ -139,7 +152,7 @@ export default {
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
             background-size: 50%;
-            height: 100px;
+            height: 80px;
         }
     }
 
@@ -153,7 +166,7 @@ export default {
         left: 0;
 
         @media #{map-get($display-breakpoints, 'md-and-up')} {
-            top: -20px;
+            // top: -20px;
         }
     }
 }
@@ -178,16 +191,16 @@ export default {
 
 @keyframes tram {
     0% {
-        transform: translateX(100%);
+        left: 100%;
     }
 
     50%,
     70% {
-        transform: translateX(30%);
+        left: 30%;
     }
 
     100% {
-        transform: translateX(-100%);
+        left: -365px;
     }
 }
 </style>

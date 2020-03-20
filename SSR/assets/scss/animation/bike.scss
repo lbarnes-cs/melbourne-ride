@@ -1,0 +1,60 @@
+.cyclist {
+    position: absolute;
+    left: 0;
+    width: 225px;
+    animation: cycling 15s ease-in infinite;
+
+    &:hover {
+        animation-play-state: paused;
+
+        .chain,
+        .wheel,
+        .crank {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@keyframes cycling {
+    0% {
+        left: -255px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.wheel {
+    animation: spin 4s infinite linear;
+}
+
+.crank {
+    animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.chain {
+    animation: movechain 0.2s normal linear infinite;
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.5);
+    stroke-width: 1px;
+    stroke-dasharray: 5;
+    stroke-dashoffset: 5;
+}
+
+@keyframes movechain {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 10;
+    }
+}
