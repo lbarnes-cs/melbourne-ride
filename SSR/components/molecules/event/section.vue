@@ -19,7 +19,7 @@
                     'eventSection__moreInfo',
                     { 'eventSection__moreInfo--active': showMore },
                 ]"
-                color="red darken-1"
+                color="primary"
                 @click="showMore = !showMore"
             >
                 <v-icon>mdi-chevron-down</v-icon>

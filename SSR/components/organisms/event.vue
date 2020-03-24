@@ -1,58 +1,65 @@
 <template lang="html">
-    <div id="event" class="section event grey--text text--darken-4">
-        <v-container>
-            <h3 class="display-3 text-center">2020</h3>
-            <h2 class="display-2 text-center">{{ event.title }}</h2>
+    <div id="event" class="event">
+        <h3 class="display-3 text-center">2020</h3>
+        <h2 class="display-2 text-center">{{ event.title }}</h2>
 
-            <v-row>
-                <v-col cols="12" md="4">
-                    <ActionCard
-                        v-if="event.location"
-                        :link="event.location_url_link"
-                        hover
-                        color="light-blue darken-1"
-                        icon="map-marker"
-                        title="Meeting Area"
-                        :content="event.location"
-                    />
+        <v-row>
+            <v-col cols="12" md="4">
+                <ActionCard
+                    v-if="event.location"
+                    :link="event.location_url_link"
+                    hover
+                    color="light-blue darken-1"
+                    icon="map-marker"
+                    title="Meeting Area"
+                    :content="event.location"
+                />
 
-                    <ActionCard
-                        v-if="event.date_and_time"
-                        color="blue-grey lighten-5"
-                        icon="calendar"
-                        title="Date"
-                        :content="
-                            formateDate(
-                                event.date_and_time,
-                                'cccc, do MMMM yyyy',
-                            )
-                        "
-                        light
-                    />
+                <ActionCard
+                    v-if="event.date_and_time"
+                    color="blue-grey lighten-5"
+                    icon="calendar"
+                    title="Date"
+                    :content="
+                        formateDate(event.date_and_time, 'cccc, do MMMM yyyy')
+                    "
+                    light
+                />
 
-                    <ActionCard
-                        v-if="event.date_and_time"
-                        color="blue-grey lighten-5"
-                        icon="clock"
-                        title="Start time"
-                        :content="formateDate(event.date_and_time, 'H:mm aaa')"
-                        light
-                    />
-                </v-col>
-                <v-col cols="12" md="8">
-                    <div
-                        class="event__summary"
-                        v-html="getMainContent(event.content)"
-                    />
+                <ActionCard
+                    v-if="event.date_and_time"
+                    color="blue-grey lighten-5"
+                    icon="clock"
+                    title="Start time"
+                    :content="formateDate(event.date_and_time, 'H:mm aaa')"
+                    light
+                />
+            </v-col>
+            <v-col cols="12" md="8">
+                <div
+                    class="event__summary"
+                    v-html="getMainContent(event.content)"
+                />
 
+                <v-btn
+                    v-if="home"
+                    to="event"
+                    x-large
+                    color="primary"
+                    class="readMoreCTA"
+                >
+                    Find out more
+                </v-btn>
+
+                <div v-if="!home" class="event__furtherInfo">
                     <EventSection
                         v-for="(section, index) in event.content_builder"
                         :key="index"
                         v-bind="section"
                     />
-                </v-col>
-            </v-row>
-        </v-container>
+                </div>
+            </v-col>
+        </v-row>
     </div>
 </template>
 
@@ -75,6 +82,11 @@ export default {
         event: {
             type: Object,
             required: true,
+        },
+        home: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
 

@@ -1,7 +1,8 @@
 <template>
-    <v-app light>
+    <v-app>
         <Header :menu="menuItems" />
-        <v-content>
+        <HeroBanner />
+        <v-content class="content">
             <nuxt />
         </v-content>
         <Footer :menu="menuItems" />
@@ -9,12 +10,16 @@
 </template>
 
 <script>
+import HeroBanner from "@/components/organisms/heroBanner.vue";
 import Header from "@/components/molecules/navigation/header.vue";
 import Footer from "@/components/molecules/navigation/footer.vue";
 import { menuItems } from "@/data/navigation-config";
 
 export default {
+    name: "LayoutHomepage",
+
     components: {
+        HeroBanner,
         Header,
         Footer,
     },
@@ -35,5 +40,9 @@ export default {
 html,
 body {
     height: 100%;
+}
+
+.content {
+    padding-top: 0 !important;
 }
 </style>

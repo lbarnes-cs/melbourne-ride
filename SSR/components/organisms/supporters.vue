@@ -1,54 +1,55 @@
 <template lang="html">
-    <div id="supporters" class="section supporters">
-        <v-container>
-            <h2 class="display-2">Supporters</h2>
+    <div id="supporters" class="supporters">
+        <h2 class="display-2">Supporters</h2>
 
-            <v-row>
-                <v-col
-                    v-for="(support, index) in supporters"
-                    :key="index"
-                    cols="12"
-                    sm="12"
-                    md="6"
-                    class="supporter"
+        <p class="title">
+            A very special thanks to our supporters whom have made our ride
+            possible.
+        </p>
+
+        <v-row>
+            <v-col
+                v-for="(support, index) in supporters"
+                :key="index"
+                cols="12"
+                sm="12"
+                md="6"
+                class="supporter"
+            >
+                <v-card
+                    light
+                    color="white"
+                    target="_blank"
+                    :ripple="false"
+                    class="supporter__card fill-height"
                 >
-                    <v-card
-                        light
-                        color="white"
-                        :href="support.url_link"
-                        target="_blank"
-                        hover
-                        :ripple="false"
-                        class="supporter__card fill-height"
-                    >
-                        <div class="supporter__content">
-                            <div class="supporter__imageContainer">
-                                <v-img
-                                    class="supporter__image white--text align-end"
-                                    height="200px"
-                                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                                    elevation="8"
-                                />
-                            </div>
-
-                            <v-card-title
-                                class="supporter__title"
-                                v-html="support.title"
+                    <div class="supporter__content">
+                        <div class="supporter__imageContainer">
+                            <v-img
+                                class="supporter__image white--text align-end"
+                                height="200px"
+                                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                                elevation="8"
                             />
-                            <v-card-text v-html="support.content" />
                         </div>
 
-                        <v-card-actions class="supporter__action">
-                            <v-divider class="supporter__divider" />
-                            <v-btn text block>
-                                <v-icon class="mr-3">mdi-open-in-new</v-icon>
-                                Visit&nbsp;<span v-html="support.title" />
-                            </v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
+                        <v-card-title
+                            class="supporter__title"
+                            v-html="support.title"
+                        />
+                        <v-card-text v-html="support.content" />
+                    </div>
+
+                    <v-card-actions class="supporter__action">
+                        <v-divider class="supporter__divider" />
+                        <v-btn text block color="primary">
+                            <v-icon class="mr-3">mdi-open-in-new</v-icon>
+                            Visit&nbsp;<span v-html="support.title" />
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-col>
+        </v-row>
     </div>
 </template>
 
@@ -67,10 +68,6 @@ export default {
 </script>
 
 <style lang="scss">
-.supporters {
-    background: map-get($red, "darken-1");
-}
-
 .supporter {
     margin: map-get($spaces, "double") 0 0;
 
