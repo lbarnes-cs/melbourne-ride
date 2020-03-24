@@ -1,7 +1,9 @@
 const colors = require("vuetify/es5/util/colors").default;
 // import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 
-module.exports = {
+import sharp from 'responsive-loader/sharp'
+
+export default {
     mode: "universal",
     /*
      ** Headers of the page
@@ -57,6 +59,8 @@ module.exports = {
         "@nuxtjs/axios",
         // Doc: https://github.com/nuxt-community/dotenv-module
         "@nuxtjs/dotenv",
+        // Doc: https://github.com/bazzite/nuxt-optimized-images
+        '@bazzite/nuxt-optimized-images',
     ],
     /*
      ** Axios module configuration
@@ -103,6 +107,27 @@ module.exports = {
         // plugins: [new VuetifyLoaderPlugin()],
         extractCSS: { ignoreOrder: true },
         extend(config, ctx) {},
+    },
+
+    optimizedImages: {
+        optimizeImages: true,
+        optimizeImagesInDev: false,
+        defaultImageLoader: 'img-loader',
+        mozjpeg: {
+            quality: 75,
+        },
+        svgo: {
+            plugins: [{ removeViewBox: false }, { removeDimensions: true }],
+        },
+        responsive: {
+            placeholder: false,
+            adapter: sharp,
+            sizes: [600, 960, 1265, 1900],
+        },
+        responsiveImagesName: ({ isDev }) =>
+            isDev
+                ? '[path][name]--[width][hash:optimized].[ext]'
+                : 'img/[hash:7]-[width].[ext]',
     },
 
     // srcDir: 'client/',
