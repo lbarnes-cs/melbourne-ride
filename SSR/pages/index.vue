@@ -1,31 +1,54 @@
 <template lang="html">
-    <div>
-        <HeroBanner />
-        <div class="contentContainer">
-            <Aim :aims="aims" />
-            <About />
-            <Event :event="event" />
-            <History :history="history" />
-            <FAQs :faqs="faqs" />
-            <Supporters :supporters="supporters" />
-        </div>
+    <div class="contentContainer">
+        <section class="section section--teal">
+            <v-container>
+                <Aim :aims="aims" home />
+            </v-container>
+        </section>
+
+        <section class="section section--indigo">
+            <v-container>
+                <About />
+            </v-container>
+        </section>
+
+        <section class="section section--light">
+            <v-container>
+                <Event :event="event" home />
+            </v-container>
+        </section>
+
+        <History :history="history" />
+
+        <section class="section section--lightGrey">
+            <v-container light>
+                <FAQs :faqs="faqs" />
+            </v-container>
+        </section>
+
+        <section class="section section--purple">
+            <v-container light>
+                <Supporters :supporters="supporters" />
+            </v-container>
+        </section>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import HeroBanner from "@/components/organisms/heroBanner.vue";
 import Aim from "@/components/organisms/aim.vue";
 import About from "@/components/organisms/about.vue";
 import Event from "@/components/organisms/event.vue";
 import History from "@/components/organisms/history.vue";
-import FAQs from "@/components/organisms/faqs.vue";
+import FAQs from "@/components/organisms/faqs-cards.vue";
 import Supporters from "@/components/organisms/supporters.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
+    name: "Homepage",
+    layout: "homepage",
+
     components: {
-        HeroBanner,
         Aim,
         About,
         Event,
@@ -62,7 +85,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .contentContainer {
     position: relative;
     z-index: 1;

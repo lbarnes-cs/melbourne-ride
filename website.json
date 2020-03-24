@@ -28,7 +28,7 @@
   "faqs": [
     {
       "title": "Who organises the Melbourne Ride?",
-      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, fermentum lacus quis, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
+      "content": "<p>Ut in porta nulla. Mauris et tellus ultrices, <a href='#'>fermentum lacus quis</a>, elementum lectus. Donec eget ante vel lectus varius venenatis vitae eu felis. Pellentesque ut dui sed erat tincidunt fermentum. Nunc vitae condimentum enim, eget sagittis tortor.</p>"
     },
     {
       "title": "How do I join the Melbourne Ride?",
@@ -56,7 +56,7 @@
     "location_url_link": "https://goo.gl/maps/TASPyobo8CZG33dVA",
     "location": "Federation Square",
     "date_and_time": "2020-10-01 10:00:00",
-    "content": "<p>More information about the ride is coming soon</p><p>Please follow us on social media to get the latest up to date information</p><p>We are looking forward to seeing you in October</p>",
+    "content": "<p>More information about the ride is coming soon</p><p>Please follow us on social media to get the latest up to date information</p><p>We ride regardless of weather; hot or cold, wind or rain, the ride will still happen! This is Melbourne, we should be used to the variations of weather. You only get this one day in the year to ride in Melbourne Ride, don't miss it. It is only due to the most extreme weather conditions which we determine to be unsafe (such as severe electrical storm or flooding) which would cause the ride to be cancelled.</p><p>Please keep your eye on our Facebook event, or our email newsletters for any last minute changes (which sometimes are necessary).</p><p>We are looking forward to seeing you in October</p>",
     "content_builder": [
       {
         "title": "How to prepare for the ride",

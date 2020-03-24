@@ -1,6 +1,7 @@
 <template>
     <v-card
-        :href="link"
+        :href="externalLink"
+        :to="link"
         :target="newWindow ? '_blank' : ''"
         :hover="hover"
         :color="color"
@@ -25,6 +26,10 @@ export default {
 
     props: {
         link: {
+            type: String,
+            required: false,
+        },
+        externalLink: {
             type: String,
             required: false,
         },

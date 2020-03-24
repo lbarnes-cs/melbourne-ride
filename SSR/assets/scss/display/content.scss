@@ -1,0 +1,15 @@
+.content p:last-child {
+    margin: 0;
+}
+
+.readMoreCTA {
+    width: 100%;
+    margin-top: map-get($spaces, "onehalf");
+
+    @media #{map-get(
+            $display-breakpoints,
+            "md-and-up"
+        )} {
+        width: auto;
+    }
+}

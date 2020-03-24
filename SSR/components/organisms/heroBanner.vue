@@ -45,14 +45,16 @@ export default {
 
 <style lang="scss" scoped>
 .heroBanner {
-    width: 100%;
-    overflow: hidden;
-    height: calc(100vh - 56px);
     background: map-get($light-blue, "darken-1");
+    overflow: hidden;
+    height: 100vh;
+    padding: map-get($spaces, "quadruple") 0 0;
     position: relative;
+    width: 100%;
 
     @media #{map-get($display-breakpoints, 'md-and-up')} {
-        height: calc(100vh - 64px);
+        height: 100vh;
+        padding: map-get($spaces, "quadruple") 0 0;
     }
 
     .content {

@@ -2,15 +2,19 @@
     <header>
         <v-app-bar :clipped-left="clipped" fixed app hide-on-scroll>
             <v-toolbar-title class="header__title">
-                <v-icon color="blue lighten-1">
-                    mdi-bicycle
-                </v-icon>
-                <span class="title blue--text lighten-1 ml-2 mr-5">
-                    Melbourne
-                    <span class="red--text text--lighten-1 font-weight-light">
-                        Ride
+                <router-link to="/">
+                    <v-icon color="blue lighten-1">
+                        mdi-bicycle
+                    </v-icon>
+                    <span class="title blue--text lighten-1">
+                        Melbourne
+                        <span
+                            class="red--text text--lighten-1 font-weight-light"
+                        >
+                            Ride
+                        </span>
                     </span>
-                </span>
+                </router-link>
             </v-toolbar-title>
             <v-spacer />
             <navigation-right class="hidden-sm-and-down" :header-menu="menu" />
@@ -80,7 +84,14 @@ export default {
 <style lang="scss" scoped>
 .header {
     &__title {
-        display: flex;
+        a {
+            display: flex;
+            text-decoration: none;
+        }
+
+        .title {
+            margin-left: map-get($spaces, "half");
+        }
     }
 }
 </style>

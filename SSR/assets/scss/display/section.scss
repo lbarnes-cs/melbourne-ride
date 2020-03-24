@@ -1,3 +1,27 @@
 .section {
     padding: map-get($spaces, "triple") 0;
+    position: relative;
+    z-index: 1;
+
+    &--lightGrey {
+        background: map-get($grey, "lighten-3");
+        color: map-get($grey, "darken-4");
+    }
+
+    &--light {
+        background: map-get($grey, "lighten-5");
+        color: map-get($grey, "darken-4");
+    }
+
+    &--teal {
+        background: map-get($teal, "darken-1");
+    }
+
+    &--indigo {
+        background: map-get($indigo, "darken-1");
+    }
+
+    &--purple {
+        background: map-get($deep-purple, "lighten-1");
+    }
 }

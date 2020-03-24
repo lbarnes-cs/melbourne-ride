@@ -5,7 +5,7 @@
             :key="index"
             :ripple="{ class: 'red--text darken-2' }"
             depressed
-            @click="$vuetify.goTo(`#${item.to}`)"
+            :to="item.to"
         >
             {{ item.title }}
         </v-btn>

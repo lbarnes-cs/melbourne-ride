@@ -1,39 +1,44 @@
 <template lang="html">
-    <div id="aim" class="section aims">
-        <v-container>
-            <h2 class="display-2">Our Aim</h2>
-            <p class="aims__title title text-center">
-                Through our highly visible presence on the streets of Melbourne,
-                <br />we aim to promote and educate the communicate on three key
-                important issues:-
-            </p>
+    <div id="aim" class="aims">
+        <h2 class="display-2">Our Aim</h2>
+        <p class="title">
+            Through our highly visible presence on the streets of Melbourne,
+            <br />we aim to promote and educate the communicate on three key
+            important issues:-
+        </p>
 
-            <v-row>
-                <v-col
-                    v-for="(item, index) in aims"
-                    :key="index"
-                    cols="12"
-                    sm="12"
-                    md="4"
-                    class="ourAims"
-                >
-                    <v-card light color="white" class="fill-height text-center">
-                        <div :class="['ourAims__imageContainer', item.color]">
-                            <SVGIcon
-                                :icon-name="item.icon"
-                                class="ourAims__icon"
-                            />
-                        </div>
-                        <v-card-title class="ourAims__title">
-                            {{ item.title }}
-                        </v-card-title>
-                        <v-card-text>
-                            {{ item.text }}
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
+        <v-row>
+            <v-col
+                v-for="(item, index) in aims"
+                :key="index"
+                cols="12"
+                sm="12"
+                md="4"
+                class="ourAims"
+            >
+                <v-card light color="white" class="fill-height text-center">
+                    <div :class="['ourAims__imageContainer', item.color]">
+                        <SVGIcon :icon-name="item.icon" class="ourAims__icon" />
+                    </div>
+                    <v-card-title class="ourAims__title">
+                        {{ item.title }}
+                    </v-card-title>
+                    <v-card-text>
+                        {{ item.text }}
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <div v-if="home" class="aims__readMore">
+            <v-btn
+                to="/about/"
+                x-large
+                color="red darken-1"
+                class="readMoreCTA"
+            >
+                Find out more
+            </v-btn>
+        </div>
     </div>
 </template>
 
@@ -53,16 +58,19 @@ export default {
             required: true,
             validator: (value) => typeof value === "object" || !value,
         },
+        home: {
+            type: Boolean,
+            default: false,
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .aims {
-    background: map-get($teal, "darken-1");
-
-    &__title {
-        margin-bottom: map-get($spaces, "triple");
+    &__readMore {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -81,7 +89,6 @@ export default {
     }
 
     &:hover .ourAims__imageContainer {
-        // transform: rotate(-15deg);
         transform: scale(1.1) rotate(-5deg);
     }
 

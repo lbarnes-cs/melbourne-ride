@@ -2,42 +2,32 @@ export const menuItems = [
     {
         icon: "mdi-earth",
         title: "About",
-        to: "about",
+        to: "/about/",
     },
     {
         icon: "mdi-bike",
         title: "Event",
-        to: "event",
-    },
-    {
-        icon: "mdi-information",
-        title: "History",
-        to: "history",
+        to: "/event/",
     },
     {
         icon: "mdi-image-multiple",
         title: "Gallery",
-        to: "gallery",
+        to: "/gallery/",
     },
     {
         icon: "mdi-frequently-asked-questions",
         title: "FAQs",
-        to: "faqs",
+        to: "/faqs/",
     },
     {
         icon: "mdi-account-group-outline",
         title: "Supporters",
-        to: "supporters",
+        to: "/supporters/",
     },
     {
         icon: "mdi-chart-bubble",
         title: "Contact",
-        to: "contact",
-    },
-    {
-        icon: "mdi-email",
-        title: "Subscribe",
-        to: "subscribe",
+        to: "/contact/",
     },
 ];
 
