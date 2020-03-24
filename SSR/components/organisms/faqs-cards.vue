@@ -34,7 +34,7 @@
             </v-col>
         </v-row>
         <div class="faqs__readMore">
-            <v-btn to="/faqs" x-large color="primary" class="readMoreCTA">
+            <v-btn to="/faqs/" x-large color="primary" class="readMoreCTA">
                 See all {{ faqs.length }} FAQs
             </v-btn>
         </div>

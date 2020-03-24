@@ -43,7 +43,7 @@
 
                 <v-btn
                     v-if="home"
-                    to="event"
+                    to="/event/"
                     x-large
                     color="primary"
                     class="readMoreCTA"

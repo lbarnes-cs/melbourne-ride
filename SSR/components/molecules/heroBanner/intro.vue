@@ -4,7 +4,7 @@
 
         <div class="actions hidden-xs-only">
             <ActionCard
-                link="/event"
+                link="/event/"
                 hover
                 color="red darken-4"
                 icon="bike"
