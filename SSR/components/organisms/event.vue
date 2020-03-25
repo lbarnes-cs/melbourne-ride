@@ -43,7 +43,8 @@
 
                 <v-btn
                     v-if="home"
-                    to="/event/"
+                    to="/event"
+                    nuxt
                     x-large
                     color="primary"
                     class="readMoreCTA"

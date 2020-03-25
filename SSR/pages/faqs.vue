@@ -12,7 +12,7 @@ import FAQs from "@/components/organisms/faqs.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
-    name: "PageFAQs",
+    name: "Faqs",
     layout: "default",
 
     components: {

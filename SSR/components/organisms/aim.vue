@@ -29,16 +29,6 @@
                 </v-card>
             </v-col>
         </v-row>
-        <div v-if="home" class="aims__readMore">
-            <v-btn
-                to="/about/"
-                x-large
-                color="red darken-1"
-                class="readMoreCTA"
-            >
-                Find out more
-            </v-btn>
-        </div>
     </div>
 </template>
 
@@ -57,10 +47,6 @@ export default {
             type: Array,
             required: true,
             validator: (value) => typeof value === "object" || !value,
-        },
-        home: {
-            type: Boolean,
-            default: false,
         },
     },
 };

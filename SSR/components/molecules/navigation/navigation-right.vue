@@ -6,6 +6,7 @@
             :ripple="{ class: 'red--text darken-2' }"
             depressed
             :to="item.to"
+            nuxt
         >
             {{ item.title }}
         </v-btn>

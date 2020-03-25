@@ -27,51 +27,73 @@
             unacceptable.
         </p>
 
-        <h3 class="headline about__headline">Can you see me now?</h3>
+        <div v-if="home" class="aims__readMore">
+            <v-btn
+                to="/about"
+                nuxt
+                x-large
+                color="red darken-1"
+                class="readMoreCTA"
+            >
+                Find out more
+            </v-btn>
+        </div>
 
-        <p>
-            The ride encourages drivers to take notice of cyclists, and promotes
-            cyclist safety
-        </p>
+        <template v-if="!home">
+            <h3 class="headline about__headline">Can you see me now?</h3>
 
-        <p>
-            In the ten years to 2012, there were an average of eight bike rider
-            fatalities and 413 serious injuries per year.
-        </p>
+            <p>
+                The ride encourages drivers to take notice of cyclists, and
+                promotes cyclist safety
+            </p>
 
-        <p>
-            A total of 22 per cent of all on-road crashes also occurred while
-            cyclists were riding in a marked bicycle lane, demonstrating they
-            are not sufficient to completely protect cyclists
-        </p>
+            <p>
+                In the ten years to 2012, there were an average of eight bike
+                rider fatalities and 413 serious injuries per year.
+            </p>
 
-        <h3 class="headline about__headline">Healthy mind, healthy body</h3>
+            <p>
+                A total of 22 per cent of all on-road crashes also occurred
+                while cyclists were riding in a marked bicycle lane,
+                demonstrating they are not sufficient to completely protect
+                cyclists
+            </p>
 
-        <p>
-            Active transportation improves our health and the health of our
-            communities. It also lowers our healthcare costs. The more people
-            walk and bike the more we lower those costs as we reduce the levels
-            of obesity, heart disease, and Type 2 diabetes.
-        </p>
+            <h3 class="headline about__headline">Healthy mind, healthy body</h3>
 
-        <p>
-            To be fit and healthy you need to be physically active. Regular
-            physical activity can help protect you from serious diseases such as
-            obesity, heart disease, cancer, mental illness, diabetes and
-            arthritis. Riding your bicycle regularly is one of the best ways to
-            reduce your risk of health problems associated with a sedentary
-            lifestyle.
-        </p>
+            <p>
+                Active transportation improves our health and the health of our
+                communities. It also lowers our healthcare costs. The more
+                people walk and bike the more we lower those costs as we reduce
+                the levels of obesity, heart disease, and Type 2 diabetes.
+            </p>
 
-        <p>
-            It’s also a fun and free event!
-        </p>
+            <p>
+                To be fit and healthy you need to be physically active. Regular
+                physical activity can help protect you from serious diseases
+                such as obesity, heart disease, cancer, mental illness, diabetes
+                and arthritis. Riding your bicycle regularly is one of the best
+                ways to reduce your risk of health problems associated with a
+                sedentary lifestyle.
+            </p>
+
+            <p>
+                It's also a fun and free event!
+            </p>
+        </template>
     </div>
 </template>
 
 <script>
 export default {
     name: "About",
+
+    props: {
+        home: {
+            type: Boolean,
+            default: false,
+        },
+    },
 };
 </script>
 

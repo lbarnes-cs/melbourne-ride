@@ -2,13 +2,13 @@
     <div class="contentContainer">
         <section class="section section--teal">
             <v-container>
-                <Aim :aims="aims" home />
+                <Aim :aims="aims" />
             </v-container>
         </section>
 
         <section class="section section--indigo">
             <v-container>
-                <About />
+                <About home />
             </v-container>
         </section>
 

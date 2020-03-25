@@ -4,7 +4,7 @@
 
         <div class="actions hidden-xs-only">
             <ActionCard
-                link="/event/"
+                link="/event"
                 hover
                 color="red darken-4"
                 icon="bike"
@@ -16,7 +16,6 @@
             <ActionCard
                 external-link="https://facebook.com"
                 hover
-                new-window
                 color="light-blue darken-4"
                 icon="facebook"
                 title="RSVP On"

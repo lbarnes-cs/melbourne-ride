@@ -20,7 +20,7 @@ import About from "@/components/organisms/about.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
-    name: "PageAbout",
+    name: "About",
     layout: "default",
 
     components: {

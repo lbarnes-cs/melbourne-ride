@@ -16,7 +16,8 @@
                         v-for="(item, index) in menu"
                         :key="index"
                         text
-                        @click="$vuetify.goTo(`#${item.to}`)"
+                        :to="item.to"
+                        nuxt
                     >
                         {{ item.title }}
                     </v-btn>
@@ -47,6 +48,8 @@
                                 icon
                                 class="footer__socialIcons"
                                 large
+                                :href="item.href"
+                                target="_blank"
                             >
                                 <v-icon>{{ item.icon }}</v-icon>
                             </v-btn>

@@ -2,7 +2,8 @@
     <v-card
         :href="externalLink"
         :to="link"
-        :target="newWindow ? '_blank' : ''"
+        :nuxt="!!link"
+        :target="externalLink ? '_blank' : ''"
         :hover="hover"
         :color="color"
         :class="['actionCard', { 'actionCard--hero': hero }]"
@@ -38,10 +39,6 @@ export default {
             default: "light-blue darken-1",
         },
         hover: {
-            type: Boolean,
-            default: false,
-        },
-        newWindow: {
             type: Boolean,
             default: false,
         },

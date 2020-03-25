@@ -2,7 +2,7 @@
     <header>
         <v-app-bar :clipped-left="clipped" fixed app hide-on-scroll>
             <v-toolbar-title class="header__title">
-                <router-link to="/">
+                <nuxt-link to="/">
                     <v-icon color="blue lighten-1">
                         mdi-bicycle
                     </v-icon>
@@ -14,7 +14,7 @@
                             Ride
                         </span>
                     </span>
-                </router-link>
+                </nuxt-link>
             </v-toolbar-title>
             <v-spacer />
             <navigation-right class="hidden-sm-and-down" :header-menu="menu" />
@@ -37,8 +37,7 @@
                     v-for="(item, i) in menu"
                     :key="i"
                     :to="item.to"
-                    router
-                    exact
+                    nuxt
                 >
                     <v-list-item-action>
                         <v-icon>{{ item.icon }}</v-icon>

@@ -14,7 +14,7 @@ import Event from "@/components/organisms/event.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
-    name: "PageEvent",
+    name: "Event",
     layout: "default",
 
     components: {

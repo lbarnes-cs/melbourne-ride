@@ -14,7 +14,7 @@ import Supporters from "@/components/organisms/supporters.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
-    name: "PageSupporters",
+    name: "Supporters",
     layout: "default",
 
     components: {

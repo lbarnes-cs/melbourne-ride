@@ -14,6 +14,8 @@ import Footer from "@/components/molecules/navigation/footer.vue";
 import { menuItems } from "@/data/navigation-config";
 
 export default {
+    name: "LayoutDefault",
+
     components: {
         Header,
         Footer,
