@@ -3,14 +3,11 @@
         <h4 class="headline red--text text--lighten-1">
             {{ title }}
         </h4>
-        <div v-if="displayFurtherInformation(content)">
-            <div v-html="displayFurtherInformation(content)[0]" />
+        <div v-if="excerptContent(content)">
+            <div v-html="excerptContent(content)[0]" />
 
             <v-slide-y-transition>
-                <div
-                    v-show="showMore"
-                    v-html="displayFurtherInformation(content)[1]"
-                />
+                <div v-show="showMore" v-html="excerptContent(content)[1]" />
             </v-slide-y-transition>
 
             <v-btn
@@ -23,7 +20,7 @@
                 @click="showMore = !showMore"
             >
                 <v-icon>mdi-chevron-down</v-icon>
-                {{ showMore ? "Hide Info" : "Read More" }}
+                {{ showMore ? "Hide Info" : call_to_action || "Read More" }}
             </v-btn>
         </div>
         <div v-else v-html="content"></div>
@@ -43,6 +40,10 @@ export default {
             type: String,
             required: true,
         },
+        call_to_action: {
+            type: String,
+            default: "Read More",
+        },
     },
 
     data: () => ({
@@ -50,7 +51,7 @@ export default {
     }),
 
     methods: {
-        displayFurtherInformation(content) {
+        excerptContent(content) {
             const readMore = "<p><!--more--></p>";
 
             if (content.includes(readMore)) {

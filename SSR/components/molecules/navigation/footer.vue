@@ -1,5 +1,5 @@
 <template lang="html">
-    <v-footer padless class="footer">
+    <v-footer padless class="footer" dark>
         <v-row no-gutters>
             <v-col cols="12" class="footerAnime">
                 <Clouds small />
@@ -12,11 +12,15 @@
             </v-col>
             <v-col class="light-green darken-3 text-center" cols="12">
                 <v-container>
+                    <v-btn text to="/" nuxt>
+                        Home
+                    </v-btn>
                     <v-btn
                         v-for="(item, index) in menu"
                         :key="index"
                         text
-                        @click="$vuetify.goTo(`#${item.to}`)"
+                        :to="item.to"
+                        nuxt
                     >
                         {{ item.title }}
                     </v-btn>
@@ -47,6 +51,8 @@
                                 icon
                                 class="footer__socialIcons"
                                 large
+                                :href="item.href"
+                                target="_blank"
                             >
                                 <v-icon>{{ item.icon }}</v-icon>
                             </v-btn>
@@ -133,8 +139,15 @@ export default {
         bottom: 0;
         z-index: 2;
 
+        @media #{map-get($display-breakpoints, 'sm-only')} {
+            background-size: 30%;
+        }
+
         @media #{map-get($display-breakpoints, 'md-and-up')} {
             background-size: 20%;
+        }
+        @media #{map-get($display-breakpoints, 'lg-and-up')} {
+            background-size: 13%;
         }
     }
 

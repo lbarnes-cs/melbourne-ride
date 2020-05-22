@@ -2,93 +2,174 @@
     <div class="contentContainer">
         <section class="section section--teal">
             <v-container>
-                <Aim :aims="aims" home />
+                <Aim />
             </v-container>
         </section>
 
-        <section class="section section--indigo">
+        <section class="section section--indigo  white--text">
             <v-container>
-                <About />
+                <AboutUs home />
             </v-container>
         </section>
 
         <section class="section section--light">
             <v-container>
-                <Event :event="event" home />
+                <Event v-bind="eventPage" home />
             </v-container>
         </section>
 
-        <History :history="history" />
+        <FeatureGallery v-bind="featureGallery" />
+
+        <History v-bind="history" />
 
         <section class="section section--lightGrey">
             <v-container light>
-                <FAQs :faqs="faqs" />
+                <FAQs v-bind="faqCard" />
             </v-container>
         </section>
 
-        <section class="section section--purple">
-            <v-container light>
-                <Supporters :supporters="supporters" />
+        <section class="section section--purple  white--text">
+            <v-container>
+                <Supporters v-bind="supportPage" />
             </v-container>
         </section>
     </div>
 </template>
 
 <script>
-import axios from "axios";
 import Aim from "@/components/organisms/aim.vue";
-import About from "@/components/organisms/about.vue";
+import AboutUs from "@/components/organisms/aboutUs.vue";
 import Event from "@/components/organisms/event.vue";
 import History from "@/components/organisms/history.vue";
 import FAQs from "@/components/organisms/faqs-cards.vue";
 import Supporters from "@/components/organisms/supporters.vue";
+import FeatureGallery from "@/components/organisms/feature-gallery.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
-    name: "Homepage",
     layout: "homepage",
 
     components: {
         Aim,
-        About,
+        AboutUs,
         Event,
         History,
         FAQs,
         Supporters,
+        FeatureGallery,
     },
 
-    async asyncData(context) {
-        const aims = await axios.get(API_ENDPOINTS.apiUrl + API_ENDPOINTS.aims);
-
-        const faqs = await axios.get(API_ENDPOINTS.apiUrl + API_ENDPOINTS.faqs);
-
-        const supporters = await axios.get(
-            API_ENDPOINTS.apiUrl + API_ENDPOINTS.supporters,
+    async asyncData({ $http, store }) {
+        // About Page
+        const [about] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.about,
         );
 
-        const event = await axios.get(
-            API_ENDPOINTS.apiUrl + API_ENDPOINTS.event,
+        if (about) {
+            store.commit("AboutPage", about);
+        }
+
+        if (about.acf) {
+            store.commit("AimsPosts", about.acf);
+        }
+
+        // History Page
+        let [history] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.history,
         );
 
-        const history = await axios.get(
-            API_ENDPOINTS.apiUrl + API_ENDPOINTS.history,
+        history = {
+            title: history.title.rendered,
+            content: history.content.rendered,
+        };
+
+        // Supporter Post
+        const supporters = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.supporters,
         );
+
+        if (supporters) {
+            store.commit("SupportersPosts", supporters);
+        }
+
+        // Supporter Page
+        let [supportPage] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.supportersPage,
+        );
+
+        supportPage = {
+            title: supportPage.acf.title || supportPage.title.rendered,
+            content: supportPage.acf.subline || supportPage.content.rendered,
+        };
+
+        // Faqs posts
+        const faqs = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost,
+        );
+
+        if (faqs) {
+            store.commit("FaqsPosts", faqs);
+        }
+
+        // Faq Page
+        let [faqCard] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPage,
+        );
+
+        faqCard = {
+            title: faqCard.acf.title || faqCard.title.rendered,
+            content: faqCard.acf.subline || faqCard.content.rendered,
+            acf: faqCard.acf,
+        };
+
+        // Event Page
+        const [eventPage] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.event,
+        );
+
+        if (eventPage) {
+            store.commit("EventPage", eventPage);
+        }
+
+        // Feature Gallery
+        let [featureGallery] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.featureGallery,
+        );
+
+        let featureGalleryMedia = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.media + featureGallery.id,
+        );
+
+        featureGalleryMedia = featureGalleryMedia.map((image) => ({
+            id: image.id,
+            thumbnail: image.media_details.sizes.thumbnail.source_url,
+            medium: image.media_details.sizes.medium.source_url,
+            large: image.media_details.sizes.large.source_url,
+            full: image.media_details.sizes.full.source_url,
+        }));
+
+        featureGallery = {
+            id: featureGallery.id,
+            slug: featureGallery.slug,
+            title: featureGallery.title.rendered,
+            content: featureGallery.content.rendered,
+            acf: featureGallery.acf,
+            featureImages: featureGalleryMedia,
+        };
 
         return {
-            aims: aims.data,
-            faqs: faqs.data,
-            supporters: supporters.data,
-            event: event.data,
-            history: history.data,
+            supportPage,
+            faqCard,
+            history,
+            featureGallery,
+            featureGalleryMedia,
         };
+    },
+
+    computed: {
+        eventPage() {
+            return this.$store.state.event;
+        },
     },
 };
 </script>
-
-<style lang="scss">
-.contentContainer {
-    position: relative;
-    z-index: 1;
-    background: map-get($grey, "darken-4");
-}
-</style>

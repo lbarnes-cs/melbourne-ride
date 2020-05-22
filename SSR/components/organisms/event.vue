@@ -1,62 +1,61 @@
 <template lang="html">
-    <div id="event" class="event">
-        <h3 class="display-3 text-center">2020</h3>
-        <h2 class="display-2 text-center">{{ event.title }}</h2>
+    <div class="event">
+        <h3 class="display-3 text-center">{{ acf.event_year }}</h3>
+        <h2 class="display-2 text-center">{{ title }}</h2>
 
         <v-row>
             <v-col cols="12" md="4">
                 <ActionCard
-                    v-if="event.location"
-                    :link="event.location_url_link"
+                    v-if="acf.location"
+                    :link="acf.location_url_link"
                     hover
                     color="light-blue darken-1"
                     icon="map-marker"
                     title="Meeting Area"
-                    :content="event.location"
+                    :content="acf.location"
+                    dark
                 />
 
                 <ActionCard
-                    v-if="event.date_and_time"
+                    v-if="acf.date_and_time"
                     color="blue-grey lighten-5"
                     icon="calendar"
                     title="Date"
                     :content="
-                        formateDate(event.date_and_time, 'cccc, do MMMM yyyy')
+                        formateDate(acf.date_and_time, 'cccc, do MMMM yyyy')
                     "
-                    light
                 />
 
                 <ActionCard
-                    v-if="event.date_and_time"
+                    v-if="acf.date_and_time"
                     color="blue-grey lighten-5"
                     icon="clock"
                     title="Start time"
-                    :content="formateDate(event.date_and_time, 'H:mm aaa')"
-                    light
+                    :content="formateDate(acf.date_and_time, 'H:mm aaa')"
                 />
             </v-col>
             <v-col cols="12" md="8">
-                <div
-                    class="event__summary"
-                    v-html="getMainContent(event.content)"
-                />
+                <div class="event__summary" v-html="getMainContent(content)" />
 
                 <v-btn
                     v-if="home"
-                    to="/event/"
+                    to="/event"
+                    nuxt
                     x-large
                     color="primary"
                     class="readMoreCTA"
                 >
-                    Find out more
+                    {{ callToAction }}
                 </v-btn>
 
                 <div v-if="!home" class="event__furtherInfo">
-                    <EventSection
-                        v-for="(section, index) in event.content_builder"
-                        :key="index"
-                        v-bind="section"
-                    />
+                    <template v-for="(section, index) in contentBuilder">
+                        <EventSection
+                            v-if="section.published"
+                            :key="index"
+                            v-bind="section"
+                        />
+                    </template>
                 </div>
             </v-col>
         </v-row>
@@ -79,9 +78,28 @@ export default {
     },
 
     props: {
-        event: {
+        title: {
+            type: String,
+            default: "title",
+        },
+        content: {
+            type: String,
+            default: "content",
+            required: false,
+        },
+        contentBuilder: {
+            type: Array,
+            validator: (value) => typeof value === "object" || !value,
+            required: false,
+        },
+        acf: {
             type: Object,
-            required: true,
+            validator: (value) => typeof value === "object" || !value,
+            required: false,
+        },
+        callToAction: {
+            type: String,
+            default: "read",
         },
         home: {
             type: Boolean,
@@ -110,17 +128,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .event {
     background: map-get($grey, "lighten-5");
 
-    &__summary p:first-child {
+    h3 {
+        margin-bottom: map-get($spaces, "half");
+        font-weight: 500;
+        color: map-get($blue, "darken-1");
+    }
+
+    &__summary ::v-deep p:first-child {
         font-size: 1.6em;
         line-height: 1.4;
         font-weight: 500;
     }
 
-    &__summary p:nth-child(2) {
+    &__summary ::v-deep p:nth-child(2) {
         font-size: 1.3em;
         line-height: 1.4;
     }

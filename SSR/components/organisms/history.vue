@@ -1,12 +1,12 @@
 <template lang="html">
-    <div id="history" class="history">
+    <div id="history" class="history  white--text">
         <v-img
             :src="require('@/assets/images/heroImages/city-cycling-min.jpg')"
             class="history__image hidden-md-and-up"
         />
         <v-container class="history__container">
-            <h2 class="display-2">{{ history.title }}</h2>
-            <div class="history__content" v-html="history.content" />
+            <h2 class="display-2">{{ title }}</h2>
+            <div class="history__content content" v-html="content" />
         </v-container>
     </div>
 </template>
@@ -16,9 +16,13 @@ export default {
     name: "History",
 
     props: {
-        history: {
-            type: Object,
-            required: true,
+        title: {
+            type: String,
+            default: "Header",
+        },
+        content: {
+            type: String,
+            default: "Content",
         },
     },
 };
@@ -26,6 +30,8 @@ export default {
 
 <style lang="scss" scoped>
 .history {
+    background: map-get($grey, "darken-4");
+
     @media #{map-get(
         $display-breakpoints,
         "md-and-up"
@@ -43,18 +49,17 @@ export default {
     }
 
     &__container {
+        margin: map-get($spaces, "triple") auto;
+
         @media #{map-get(
             $display-breakpoints,
             "md-and-up"
         )} {
-            padding: map-get($spaces, "one") map-get($spaces, "onehalf");
+            padding: map-get($spaces, "double");
             background: rgba(map-get($grey, "darken-4"), 0.8);
             border-radius: map-get($spaces, "half");
+            margin: auto;
         }
-    }
-
-    &__content p:last-of-type {
-        margin: 0;
     }
 }
 </style>

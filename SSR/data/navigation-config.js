@@ -2,32 +2,37 @@ export const menuItems = [
     {
         icon: "mdi-earth",
         title: "About",
-        to: "/about/",
+        to: "/about",
     },
     {
         icon: "mdi-bike",
         title: "Event",
-        to: "/event/",
+        to: "/event",
     },
     {
-        icon: "mdi-image-multiple",
-        title: "Gallery",
-        to: "/gallery/",
+        icon: "mdi-calendar-star",
+        title: "Previous Rides",
+        to: "/previous-rides",
+    },
+    {
+        icon: "mdi-video-image",
+        title: "Media",
+        to: "/media",
     },
     {
         icon: "mdi-frequently-asked-questions",
         title: "FAQs",
-        to: "/faqs/",
+        to: "/faqs",
     },
     {
         icon: "mdi-account-group-outline",
         title: "Supporters",
-        to: "/supporters/",
+        to: "/supporters",
     },
     {
-        icon: "mdi-chart-bubble",
+        icon: "mdi-chat-processing-outline",
         title: "Contact",
-        to: "/contact/",
+        to: "/contact",
     },
 ];
 
@@ -36,24 +41,24 @@ export const socialMedia = [
         icon: "mdi-facebook",
         flatIcon: "mdi-",
         title: "Facebook",
-        to: "",
+        href: "https://facebook.com",
     },
     {
         icon: "mdi-instagram",
         flatIcon: "mdi-",
         title: "Instagram",
-        to: "",
+        href: "https://instagram.com",
     },
     {
         icon: "mdi-twitter",
         flatIcon: "mdi-",
         title: "Twitter",
-        to: "",
+        href: "https://twiter.com",
     },
     {
         icon: "mdi-youtube",
         flatIcon: "mdi-",
         title: "YouTube",
-        to: "",
+        href: "https://youtube.com",
     },
 ];

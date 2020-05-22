@@ -1,15 +1,11 @@
 <template lang="html">
-    <div id="aim" class="aims">
-        <h2 class="display-2">Our Aim</h2>
-        <p class="title">
-            Through our highly visible presence on the streets of Melbourne,
-            <br />we aim to promote and educate the communicate on three key
-            important issues:-
-        </p>
+    <div id="aim" class="aims white--text">
+        <h2 class="display-2">{{ this.$store.state.aims.title }}</h2>
+        <p class="title" v-html="this.$store.state.aims.subline" />
 
         <v-row>
             <v-col
-                v-for="(item, index) in aims"
+                v-for="(item, index) in aims.aims"
                 :key="index"
                 cols="12"
                 sm="12"
@@ -29,16 +25,6 @@
                 </v-card>
             </v-col>
         </v-row>
-        <div v-if="home" class="aims__readMore">
-            <v-btn
-                to="/about/"
-                x-large
-                color="red darken-1"
-                class="readMoreCTA"
-            >
-                Find out more
-            </v-btn>
-        </div>
     </div>
 </template>
 
@@ -52,15 +38,9 @@ export default {
         SVGIcon,
     },
 
-    props: {
-        aims: {
-            type: Array,
-            required: true,
-            validator: (value) => typeof value === "object" || !value,
-        },
-        home: {
-            type: Boolean,
-            default: false,
+    computed: {
+        aims() {
+            return this.$store.state.aims;
         },
     },
 };

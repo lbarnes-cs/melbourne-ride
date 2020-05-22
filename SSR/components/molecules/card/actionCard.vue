@@ -2,11 +2,12 @@
     <v-card
         :href="externalLink"
         :to="link"
-        :target="newWindow ? '_blank' : ''"
+        :nuxt="!!link"
+        :target="externalLink ? '_blank' : ''"
         :hover="hover"
         :color="color"
         :class="['actionCard', { 'actionCard--hero': hero }]"
-        :light="light"
+        :dark="dark"
     >
         <v-icon large class="actionCard__icon"> mdi-{{ icon }} </v-icon>
         <div>
@@ -41,15 +42,11 @@ export default {
             type: Boolean,
             default: false,
         },
-        newWindow: {
-            type: Boolean,
-            default: false,
-        },
         hero: {
             type: Boolean,
             default: false,
         },
-        light: {
+        dark: {
             type: Boolean,
             default: false,
         },
@@ -73,12 +70,21 @@ export default {
 <style lang="scss" scoped>
 .actionCard {
     display: flex;
-    padding: map-get($spaces, "one");
-    margin: 0 0 map-get($spaces, "onehalf");
+    padding: map-get($spaces, "half");
+    margin: 0 0 map-get($spaces, "one");
+
+    @media #{map-get($display-breakpoints, 'sm-and-up')} {
+        margin: 0 0 map-get($spaces, "onehalf");
+        padding: map-get($spaces, "one");
+    }
 
     &__icon {
-        margin-right: map-get($spaces, "one");
+        margin-right: map-get($spaces, "half");
         transition: ease-in-out 200ms all;
+
+        @media #{map-get($display-breakpoints, 'sm-and-up')} {
+            margin-right: map-get($spaces, "one");
+        }
     }
 
     &__title {

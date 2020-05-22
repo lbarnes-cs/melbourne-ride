@@ -2,7 +2,7 @@
     <v-app>
         <Header :menu="menuItems" />
         <HeroBanner />
-        <v-content class="content">
+        <v-content class="homepage__content">
             <nuxt />
         </v-content>
         <Footer :menu="menuItems" />
@@ -40,9 +40,10 @@ export default {
 html,
 body {
     height: 100%;
+    margin: 0;
 }
 
-.content {
+.homepage__content {
     padding-top: 0 !important;
 }
 </style>

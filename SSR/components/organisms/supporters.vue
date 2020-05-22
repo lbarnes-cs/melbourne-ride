@@ -1,11 +1,6 @@
 <template lang="html">
-    <div id="supporters" class="supporters">
-        <h2 class="display-2">Supporters</h2>
-
-        <p class="title">
-            A very special thanks to our supporters whom have made our ride
-            possible.
-        </p>
+    <div class="supporters">
+        <Header :title="title" :subline="content" to="/contact" />
 
         <v-row>
             <v-col
@@ -18,33 +13,45 @@
             >
                 <v-card
                     light
-                    color="white"
-                    target="_blank"
                     :ripple="false"
                     class="supporter__card fill-height"
+                    color="white"
                 >
                     <div class="supporter__content">
                         <div class="supporter__imageContainer">
                             <v-img
-                                class="supporter__image white--text align-end"
+                                :src="
+                                    support.featureImage ||
+                                        'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+                                "
+                                class="supporter__image align-end"
                                 height="200px"
-                                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                                contain
                                 elevation="8"
+                                :style="{ backgroundColor: support.acf.colour }"
                             />
                         </div>
 
-                        <v-card-title
-                            class="supporter__title"
-                            v-html="support.title"
-                        />
+                        <v-card-title class="supporter__title">
+                            {{ support.title | apostrophe }}
+                        </v-card-title>
                         <v-card-text v-html="support.content" />
                     </div>
 
                     <v-card-actions class="supporter__action">
                         <v-divider class="supporter__divider" />
-                        <v-btn text block color="primary">
+                        <v-btn
+                            :href="support.acf.url_link"
+                            class="supporter__ctaBtn btn--wide"
+                            target="_blank"
+                            text
+                            block
+                            color="primary"
+                        >
                             <v-icon class="mr-3">mdi-open-in-new</v-icon>
-                            Visit&nbsp;<span v-html="support.title" />
+                            <span class="supporter__linkText">
+                                Visit {{ support.title | apostrophe }}
+                            </span>
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -54,20 +61,57 @@
 </template>
 
 <script>
+import Header from "@/components/molecules/title/header.vue";
+
 export default {
     name: "Supporters",
 
+    components: {
+        Header,
+    },
+
     props: {
-        supporters: {
-            type: Array,
-            required: true,
-            validator: (value) => typeof value === "object" || !value,
+        title: {
+            type: String,
+            default: "Header",
+        },
+        content: {
+            type: String,
+            default: "Subline with [link]",
+        },
+    },
+
+    computed: {
+        supporters() {
+            return this.$store.state.supporters;
+        },
+
+        displaySubline() {
+            const subline = this.content.replace("{{count}}", this.faqs.length);
+
+            if (subline.match(/\[(.*?)\]/)) {
+                return subline.split("[")[0];
+            }
+
+            return subline;
+        },
+
+        displaySublineLink() {
+            if (this.content.match(/\[(.*)\]/)) {
+                const subline = this.content.replace(
+                    "{{count}}",
+                    this.faqs.length,
+                );
+                return subline.match(/\[(.*)\]/)[1];
+            }
+
+            return false;
         },
     },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .supporter {
     margin: map-get($spaces, "double") 0 0;
 
@@ -108,6 +152,13 @@ export default {
     &__divider {
         width: 100%;
         margin: 0 0 map-get($spaces, "half");
+    }
+
+    &__ctaBtn {
+    }
+
+    &__linkText {
+        white-space: normal;
     }
 }
 </style>

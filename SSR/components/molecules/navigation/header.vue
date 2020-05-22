@@ -1,20 +1,20 @@
 <template lang="html">
     <header>
-        <v-app-bar :clipped-left="clipped" fixed app hide-on-scroll>
+        <v-app-bar :clipped-left="clipped" fixed app hide-on-scroll dark>
             <v-toolbar-title class="header__title">
-                <router-link to="/">
+                <nuxt-link to="/">
                     <v-icon color="blue lighten-1">
                         mdi-bicycle
                     </v-icon>
                     <span class="title blue--text lighten-1">
-                        Melbourne
+                        WNBR
                         <span
                             class="red--text text--lighten-1 font-weight-light"
                         >
-                            Ride
+                            Melbourne
                         </span>
                     </span>
-                </router-link>
+                </nuxt-link>
             </v-toolbar-title>
             <v-spacer />
             <navigation-right class="hidden-sm-and-down" :header-menu="menu" />
@@ -37,8 +37,7 @@
                     v-for="(item, i) in menu"
                     :key="i"
                     :to="item.to"
-                    router
-                    exact
+                    nuxt
                 >
                     <v-list-item-action>
                         <v-icon>{{ item.icon }}</v-icon>
