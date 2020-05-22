@@ -99,7 +99,6 @@ export default {
         submission: {
             apiEndpoint:
                 "wp-json/contact-form-7/v1/contact-forms/{{id}}/feedback",
-            domain: "https://wnbrmelbourne.com.au/",
             formID: "7121",
             isValid: true,
             responseMessage: "",
@@ -108,12 +107,9 @@ export default {
 
     computed: {
         getEndEndpoint() {
-            return (
-                this.submission.domain +
-                this.submission.apiEndpoint.replace(
-                    "{{id}}",
-                    this.submission.formID,
-                )
+            return this.submission.apiEndpoint.replace(
+                "{{id}}",
+                this.submission.formID,
             );
         },
     },
