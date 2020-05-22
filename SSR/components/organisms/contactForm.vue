@@ -116,18 +116,14 @@ export default {
 
     methods: {
         async submit() {
-            if (this.form.website) {
-                return;
-            }
-
             if (!this.$refs.form.validate() || this.form.website) {
                 return;
             }
 
             this.loading = true;
 
-            const form = this.prepareEmailForm();
-            const res = await this.$http.post(this.getEndEndpoint, form);
+            const formBody = this.prepareEmailForm();
+            const res = await this.$http.post(this.getEndEndpoint, formBody);
             const data = await res.json();
 
             this.loading = false;
@@ -141,6 +137,7 @@ export default {
 
             this.submission.isValid = true;
         },
+
         prepareEmailForm() {
             // Build for data
             const emailBody = {
