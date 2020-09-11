@@ -1,5 +1,5 @@
 <template lang="html">
-    <div id="history" class="history  white--text">
+    <div id="history" class="history white--text">
         <v-img
             :src="require('@/assets/images/heroImages/city-cycling-min.jpg')"
             class="history__image hidden-md-and-up"

@@ -20,12 +20,10 @@ export default {
             API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPage,
         );
 
-        if (!store.state.faqs.length) {
-            const faqs = await $http.$get(
-                API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost,
-            );
-            store.commit("FaqsPosts", faqs);
-        }
+        const faqs = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost,
+        );
+        store.commit("FaqsPosts", faqs);
 
         return {
             page: {

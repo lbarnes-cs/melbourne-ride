@@ -2,9 +2,9 @@
     <v-app>
         <Header :menu="menuItems" />
         <HeroBanner />
-        <v-content class="homepage__content">
+        <v-main class="homepage__content">
             <nuxt />
-        </v-content>
+        </v-main>
         <Footer :menu="menuItems" />
     </v-app>
 </template>

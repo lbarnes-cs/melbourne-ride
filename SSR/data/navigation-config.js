@@ -5,12 +5,12 @@ export const menuItems = [
         to: "/about",
     },
     {
-        icon: "mdi-bike",
+        icon: "mdi-calendar-star",
         title: "Event",
         to: "/event",
     },
     {
-        icon: "mdi-calendar-star",
+        icon: "mdi-bike",
         title: "Previous Rides",
         to: "/previous-rides",
     },
@@ -38,27 +38,27 @@ export const menuItems = [
 
 export const socialMedia = [
     {
-        icon: "mdi-facebook",
+        icon: "facebook",
         flatIcon: "mdi-",
         title: "Facebook",
-        href: "https://facebook.com",
+        href: "https://www.facebook.com/account-name/",
     },
     {
-        icon: "mdi-instagram",
+        icon: "instagram",
         flatIcon: "mdi-",
         title: "Instagram",
-        href: "https://instagram.com",
+        href: "https://www.instagram.com/account-name/",
     },
     {
-        icon: "mdi-twitter",
+        icon: "twitter",
         flatIcon: "mdi-",
         title: "Twitter",
-        href: "https://twiter.com",
+        href: "https://twitter.com/account-name",
     },
     {
-        icon: "mdi-youtube",
+        icon: "youtube",
         flatIcon: "mdi-",
         title: "YouTube",
-        href: "https://youtube.com",
+        href: "https://www.youtube.com/channel/account-name",
     },
 ];

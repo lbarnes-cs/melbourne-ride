@@ -60,5 +60,9 @@ export default {
         display: flex;
         justify-content: center;
     }
+
+    ::v-deep ul {
+        margin: map-get($spaces, "one") 0;
+    }
 }
 </style>

@@ -35,6 +35,7 @@ export default {
         menuItems: {
             type: Array,
             required: true,
+            default: () => [],
             validator: (value) => typeof value === "object" || !value,
         },
     },

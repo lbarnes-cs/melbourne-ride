@@ -10,7 +10,7 @@
                 </v-container>
                 <div class="footerAnime__grass"></div>
             </v-col>
-            <v-col class="light-green darken-3 text-center" cols="12">
+            <v-col class="light-green darken-1 text-center" cols="12">
                 <v-container>
                     <v-btn text to="/" nuxt>
                         Home
@@ -26,7 +26,7 @@
                     </v-btn>
                 </v-container>
             </v-col>
-            <v-col class="light-green darken-2" cols="12">
+            <v-col class="light-green" cols="12">
                 <v-container>
                     <v-row class="footer__secondary text-center">
                         <v-col cols="12" sm="12" md="6" class="text-md-left">
@@ -46,15 +46,15 @@
                             class="text-md-right"
                         >
                             <v-btn
-                                v-for="(item, index) in socialItems"
+                                v-for="(item, index) in socialMedia"
                                 :key="index"
                                 icon
                                 class="footer__socialIcons"
                                 large
-                                :href="item.href"
+                                :href="item.link"
                                 target="_blank"
                             >
-                                <v-icon>{{ item.icon }}</v-icon>
+                                <v-icon> mdi-{{ item.icon }} </v-icon>
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { socialMedia } from "@/data/navigation-config";
+import { mapGetters } from "vuex";
 import Clouds from "@/components/atoms/designElements/clouds.vue";
 
 export default {
@@ -84,9 +84,9 @@ export default {
     },
 
     computed: {
-        socialItems() {
-            return socialMedia;
-        },
+        ...mapGetters({
+            socialMedia: "socialMedia",
+        }),
     },
 };
 </script>
@@ -94,6 +94,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
     position: relative;
+    z-index: 0;
 
     &__secondary {
         flex-direction: column-reverse;
@@ -119,7 +120,10 @@ export default {
 }
 .footerAnime {
     position: relative;
-    background: map-get($light-blue, "darken-1");
+    background: map-get($light-blue, "lighten-2");
+    border-top: map-get($spaces, "quarter") solid
+        map-get($light-blue, "darken-1");
+    border-bottom: map-get($spaces, "eighth") solid map-get($green, "darken-1");
 
     &__container {
         position: relative;
@@ -146,9 +150,14 @@ export default {
         @media #{map-get($display-breakpoints, 'md-and-up')} {
             background-size: 20%;
         }
+
         @media #{map-get($display-breakpoints, 'lg-and-up')} {
             background-size: 13%;
         }
+
+        /* @media #{map-get($display-breakpoints, 'xl-and-up')} {
+            background-size: 10%;
+        } */
     }
 
     &__tree {

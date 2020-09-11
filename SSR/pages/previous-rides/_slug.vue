@@ -131,11 +131,7 @@ export default {
 
     // fetchOnServer: false,
 
-    async asyncData({ $http, params, error, payload }) {
-        if (payload) {
-            return { previousRide: payload };
-        }
-
+    async asyncData({ $http, params, error }) {
         let [previousRide] = await $http.$get(
             API_ENDPOINTS.baseURL +
                 API_ENDPOINTS.previousRidePost +
@@ -280,6 +276,12 @@ export default {
                 }, 3000);
             }
         },
+    },
+
+    head() {
+        return {
+            title: this.previousRide.title,
+        };
     },
 };
 </script>

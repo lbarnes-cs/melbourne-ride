@@ -11,10 +11,10 @@ ul.list {
         }
 
         li:before {
-            content: "\F134";
             display: block;
-            margin-right: map-get($spaces, "half");
             font-family: "Material Design Icons";
+            content: "\f134";
+            margin-right: map-get($spaces, "half");
         }
     }
 }

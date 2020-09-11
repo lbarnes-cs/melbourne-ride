@@ -38,18 +38,10 @@ export default {
         Sidebar,
     },
 
-    async asyncData({ $http, params, error, payload, store }) {
-        if (!store.state.faqs.length) {
-            const faqs = await $http.$get(
-                API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost,
-            );
-
-            store.commit("FaqsPosts", faqs);
-        }
-
-        if (payload) {
-            return { question: payload };
-        }
+    async asyncData({ $http, params, error }) {
+        // const faqs = await $http.$get(
+        //     API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost,
+        // );
 
         let [question] = await $http.$get(
             API_ENDPOINTS.baseURL + API_ENDPOINTS.faqsPost + params.slug,
@@ -83,6 +75,12 @@ export default {
         faqs() {
             return this.$store.state.faqs;
         },
+    },
+
+    head() {
+        return {
+            title: this.question.title,
+        };
     },
 };
 </script>

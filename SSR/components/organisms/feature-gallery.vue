@@ -1,5 +1,5 @@
 <template lang="html">
-    <section class="section section--darkGrey  white--text">
+    <section class="section section--darkGrey white--text">
         <v-container>
             <Header :title="title" :subline="content" :count="media.length" />
         </v-container>

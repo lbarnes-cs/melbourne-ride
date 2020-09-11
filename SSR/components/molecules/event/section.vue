@@ -13,14 +13,14 @@
             <v-btn
                 dark
                 :class="[
-                    'eventSection__moreInfo',
+                    'eventSection__moreInfo btn--wide',
                     { 'eventSection__moreInfo--active': showMore },
                 ]"
                 color="primary"
                 @click="showMore = !showMore"
             >
                 <v-icon>mdi-chevron-down</v-icon>
-                {{ showMore ? "Hide Info" : call_to_action || "Read More" }}
+                {{ showMore ? hideButtonCta : callToAction || "Read More" }}
             </v-btn>
         </div>
         <div v-else v-html="content"></div>
@@ -40,9 +40,13 @@ export default {
             type: String,
             required: true,
         },
-        call_to_action: {
+        callToAction: {
             type: String,
             default: "Read More",
+        },
+        hideButtonCta: {
+            type: String,
+            default: "Hide Info",
         },
     },
 

@@ -116,15 +116,14 @@ export default {
         display: flex;
         justify-content: center;
     }
-
-    .v-card__title {
-        word-break: break-word;
-    }
 }
 
 .faqCard {
     &__continue {
         margin-top: map-get($spaces, "one");
+    }
+    ::v-deep .v-card__title {
+        word-break: break-word;
     }
 }
 </style>

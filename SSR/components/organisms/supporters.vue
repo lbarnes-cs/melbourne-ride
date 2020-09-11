@@ -22,7 +22,7 @@
                             <v-img
                                 :src="
                                     support.featureImage ||
-                                        'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+                                    'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
                                 "
                                 class="supporter__image align-end"
                                 height="200px"

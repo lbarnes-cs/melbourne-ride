@@ -1,7 +1,7 @@
 {
     "name": "melbourne-ride-ssr",
     "version": "1.0.0",
-    "description": "A SSR Website",
+    "description": "A SSR Website powered by Nuxt",
     "author": "Laurence Barnes",
     "private": true,
     "scripts": {
@@ -13,7 +13,8 @@
         "generate": "nuxt generate",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
         "test": "jest",
-        "test:watch": "jest --watchAll"
+        "test:watch": "jest --watchAll",
+        "static": "nuxt build && nuxt export"
     },
     "lint-staged": {
         "*.{js,vue}": "eslint --cache --fix"
@@ -28,39 +29,41 @@
         }
     },
     "dependencies": {
-        "@nuxt/http": "^0.4.0",
-        "@nuxtjs/axios": "^5.9.7",
-        "@nuxtjs/dotenv": "^1.4.0",
+        "@nuxt/http": "^0.5.12",
+        "@nuxtjs/axios": "^5.12.2",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "@nuxtjs/recaptcha": "^0.6.2",
         "cross-env": "^7.0.2",
-        "date-fns": "^2.11.1",
+        "date-fns": "^2.16.1",
         "date-fns-tz": "^1.0.10",
-        "express": "^4.16.4",
-        "nuxt": "^2.12.2",
+        "express": "^4.17.1",
+        "nuxt": "^2.14.5",
         "vue-div-100vh": "^0.1.2",
-        "vuetify-loader": "^1.4.3"
+        "vuetify-loader": "^1.6.0"
     },
     "devDependencies": {
-        "@nuxtjs/eslint-config": "^2.0.0",
-        "@nuxtjs/eslint-module": "^1.0.0",
-        "@nuxtjs/svg-sprite": "^0.4.10",
-        "@nuxtjs/vuetify": "^1.11.0",
-        "@vue/test-utils": "^1.0.0-beta.32",
-        "babel-eslint": "^10.0.1",
-        "babel-jest": "^25.2.6",
-        "eslint": "^6.1.0",
-        "eslint-config-prettier": "^6.10.1",
-        "eslint-plugin-nuxt": "^0.5.2",
-        "eslint-plugin-prettier": "^3.1.2",
-        "husky": "^4.0.0",
-        "jest": "^25.2.7",
-        "lint-staged": "^10.1.1",
-        "node-sass": "^4.13.1",
-        "nodemon": "^2.0.2",
-        "prettier": "^1.19.1",
-        "prettier-eslint": "^9.0.1",
+        "@nuxtjs/eslint-config": "^3.1.0",
+        "@nuxtjs/eslint-module": "^2.0.0",
+        "@nuxtjs/google-analytics": "^2.4.0",
+        "@nuxtjs/svg-sprite": "^0.4.12",
+        "@nuxtjs/vuetify": "^1.11.2",
+        "@vue/test-utils": "^1.1.0",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.3.0",
+        "eslint": "^7.8.1",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-nuxt": "^1.0.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.3.0",
+        "jest": "^26.4.2",
+        "lint-staged": "^10.3.0",
+        "node-sass": "^4.14.1",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.1.1",
+        "prettier-eslint": "^11.0.0",
         "prettier-eslint-cli": "^5.0.0",
         "prettier-stylelint": "^0.4.2",
         "sass-loader": "^8.0.2",
-        "vue-jest": "^4.0.0-0"
+        "vue-jest": "^3.0.6"
     }
 }
