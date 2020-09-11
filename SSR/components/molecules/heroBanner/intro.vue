@@ -1,6 +1,6 @@
 <template>
     <v-container class="introContent">
-        <SVGIcon icon-name="wnbr-logo" class="logo" />
+        <SVGIcon icon-name="melbourne-ride-logo" class="logo" />
 
         <div class="actions">
             <ActionCard
@@ -9,17 +9,17 @@
                 color="red darken-4"
                 icon="bike"
                 title="Next ride"
-                content="15th March 2020"
+                :content="formateDate(upcomingRideDate, 'do MMMM yyyy')"
                 hero
                 dark
             />
 
             <ActionCard
-                external-link="https://facebook.com"
+                :external-link="themeSettings.hero_banner.facebook_link"
                 hover
                 color="light-blue darken-4"
                 icon="facebook"
-                title="RSVP On"
+                :title="themeSettings.hero_banner.facebook_title"
                 content="Facebook"
                 hero
                 dark
@@ -29,6 +29,10 @@
 </template>
 
 <script>
+import { parseISO } from "date-fns";
+import { format } from "date-fns-tz";
+import { enAU } from "date-fns/locale";
+import { mapGetters } from "vuex";
 import SVGIcon from "@/components/atoms/icons/SVGIcon.vue";
 import ActionCard from "@/components/molecules/card/actionCard.vue";
 
@@ -38,6 +42,21 @@ export default {
     components: {
         SVGIcon,
         ActionCard,
+    },
+
+    computed: {
+        ...mapGetters({
+            upcomingRideDate: "upcomingRideDate",
+            themeSettings: "themeSettings",
+        }),
+    },
+
+    methods: {
+        formateDate(date, timeFormat) {
+            return format(parseISO(date), timeFormat, {
+                locale: enAU,
+            });
+        },
     },
 };
 </script>
@@ -91,7 +110,7 @@ export default {
         width: 100%;
 
         @media #{map-get($display-breakpoints, 'sm-and-up')} {
-            width: 250px;
+            width: 270px;
             margin: 0 map-get($spaces, "one");
         }
     }

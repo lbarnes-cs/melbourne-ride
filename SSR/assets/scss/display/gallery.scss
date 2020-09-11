@@ -1,0 +1,15 @@
+.gallery {
+    &__image {
+        cursor: pointer;
+
+        .v-image__image {
+            transition: ease-in-out 200ms transform;
+        }
+
+        &:hover {
+            .v-image__image {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

@@ -66,17 +66,16 @@ import Header from "@/components/molecules/title/header.vue";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
+    name: "PreviousRides",
     components: {
         Header,
     },
     async asyncData({ $http, store }) {
-        if (!store.state.previousRides.length) {
-            const previousRides = await $http.$get(
-                API_ENDPOINTS.baseURL + API_ENDPOINTS.previousRidePost,
-            );
+        const previousRides = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.previousRidePost,
+        );
 
-            store.commit("PreviousRidesPosts", previousRides);
-        }
+        store.commit("PreviousRidesPosts", previousRides);
 
         let [page] = await $http.$get(
             API_ENDPOINTS.baseURL + API_ENDPOINTS.previousRidePage,
@@ -96,6 +95,12 @@ export default {
         previousRides() {
             return this.$store.state.previousRides;
         },
+    },
+
+    head() {
+        return {
+            title: "Previous Rides",
+        };
     },
 };
 </script>

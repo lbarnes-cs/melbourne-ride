@@ -1,3 +1,8 @@
+body,
+.theme--light.v-application {
+    background: map-get($grey, "lighten-5");
+}
+
 .section {
     padding: map-get($spaces, "triple") 0;
     position: relative;
@@ -6,6 +11,10 @@
     &--lightGrey {
         background: map-get($grey, "lighten-3");
         color: map-get($grey, "darken-4");
+    }
+
+    &--darkGrey {
+        background: map-get($blue-grey, "darken-3");
     }
 
     &--light {
@@ -23,5 +32,9 @@
 
     &--purple {
         background: map-get($deep-purple, "lighten-1");
+    }
+
+    &--blue {
+      background: map-get($light-blue, "darken-2");
     }
 }

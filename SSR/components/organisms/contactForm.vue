@@ -1,5 +1,6 @@
 <template lang="html">
     <div class="contactForm">
+        <h3>{{ formHeader }}</h3>
         <v-form
             ref="form"
             v-model="valid"
@@ -10,7 +11,7 @@
                 v-model="form.website"
                 type="text"
                 name="website"
-                class="contactForm__honey"
+                class="contactForm__sweet"
                 tabindex="-1"
                 autocomplete="off"
             />
@@ -18,15 +19,18 @@
             <v-text-field
                 v-model="form.name"
                 class="contactForm__input"
+                color="blue darken-2"
                 name="name"
                 label="Name"
                 :rules="rules.nameRules"
                 prepend-inner-icon="mdi-account"
                 required
             />
+
             <v-text-field
                 v-model="form.email"
                 class="contactForm__input"
+                color="blue darken-2"
                 name="email"
                 label="Email"
                 type="email"
@@ -38,21 +42,19 @@
             <v-textarea
                 v-model="form.message"
                 :rules="rules.messageRules"
+                color="blue darken-2"
                 class="contactForm__input contactForm__input--textarea"
                 prepend-inner-icon="mdi-comment"
                 label="Message"
+                :rows="4"
                 required
             />
 
-            <div
-                v-if="submission.responseMessage"
-                :class="[
-                    'contactForm__message',
-                    { 'contactForm__message--error': !submission.isValid },
-                ]"
-            >
-                <span>{{ submission.responseMessage }}</span>
-            </div>
+            <v-checkbox
+                v-model="form.emailSubscription"
+                color="blue darken-2"
+                :label="newsletterSubscriptionText"
+            />
 
             <v-btn
                 type="submit"
@@ -64,6 +66,20 @@
                 {{ submitButton }}
             </v-btn>
         </v-form>
+
+        <v-snackbar
+            v-model="snackbar.display"
+            :timeout="snackbar.timeout"
+            :color="!submission.isValid ? 'red' : 'blue darken-2'"
+            class="contactForm__snackbar"
+            bottom
+            vertical
+        >
+            {{ submission.responseMessage }}
+            <v-btn color="white" text @click="snackbar.display = false">
+                Close
+            </v-btn>
+        </v-snackbar>
     </div>
 </template>
 
@@ -72,21 +88,30 @@ export default {
     name: "ContactForm",
 
     props: {
+        formHeader: {
+            type: String,
+            default: "Reach out to us",
+        },
         submitButton: {
             type: String,
             default: "Submit Form",
+        },
+        newsletterSubscriptionText: {
+            type: String,
+            default: "Sign up to our newsletter",
         },
     },
 
     data: () => ({
         valid: false,
         loading: false,
-        honeypot: "",
         form: {
             email: "",
             name: "",
             message: "",
             website: "",
+            token: "",
+            emailSubscription: false,
         },
         rules: {
             emailRules: [
@@ -99,55 +124,93 @@ export default {
         submission: {
             apiEndpoint:
                 "wp-json/contact-form-7/v1/contact-forms/{{id}}/feedback",
+            domain: "http://localhost:3000/wp/",
             formID: "7121",
             isValid: true,
             responseMessage: "",
+        },
+        snackbar: {
+            display: false,
+            timeout: 6000,
         },
     }),
 
     computed: {
         getEndEndpoint() {
-            return this.submission.apiEndpoint.replace(
-                "{{id}}",
-                this.submission.formID,
+            return (
+                this.submission.domain +
+                this.submission.apiEndpoint.replace(
+                    "{{id}}",
+                    this.submission.formID,
+                )
             );
         },
     },
 
+    async mounted() {
+        await this.$recaptcha.init();
+    },
+
     methods: {
         async submit() {
+            if (this.form.website) {
+                return;
+            }
+
             if (!this.$refs.form.validate() || this.form.website) {
                 return;
             }
 
             this.loading = true;
 
-            const formBody = this.prepareEmailForm();
-            const res = await this.$http.post(this.getEndEndpoint, formBody);
+            // get token
+            this.form.token = await this.$recaptcha.execute("social");
+
+            console.log("submit form data", this.form);
+            const form = this.prepareEmailForm();
+            const res = await this.$http.post(this.getEndEndpoint, form);
             const data = await res.json();
 
+            console.log("form", form, "response", data);
             this.loading = false;
             this.submission.responseMessage = data.message;
+            this.snackbar.display = true;
 
             if (data.status === "validation_failed") {
                 this.submission.isValid = false;
-                this.submission.responseMessage = data.message;
                 return;
             }
 
+            this.$refs.form.reset();
             this.submission.isValid = true;
         },
 
         prepareEmailForm() {
             // Build for data
-            const emailBody = {
+
+            console.log(
+                "this.form.emailSubscription",
+                this.form.emailSubscription,
+            );
+
+            let emailBody = {
                 "your-name": this.form.name,
                 "your-email": this.form.email,
                 "your-message": this.form.message,
-                website: this.form.website,
+                "g-recaptcha-response": this.form.token,
+                website: this.form.website || "",
             };
 
+            if (this.form.emailSubscription) {
+                console.log("subscribe to email");
+                const subscription = { "opt-in": true };
+                emailBody = { ...emailBody, ...subscription };
+            }
+
+            console.log("emailBody", emailBody);
+
             const form = new FormData();
+
             for (const field in emailBody) {
                 form.append(field, emailBody[field]);
             }
@@ -170,6 +233,12 @@ export default {
         &:first-of-type {
             padding-top: 0;
         }
+
+        ::v-deep input:-internal-autofill-previewed,
+        ::v-deep input:-internal-autofill-selected,
+        ::v-deep input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px map-get($grey, "lighten-5") inset !important;
+        }
     }
 
     &__button {
@@ -184,14 +253,16 @@ export default {
         }
     }
 
-    &__honey {
+    &__sweet {
         display: none;
         visibility: hidden;
     }
 
-    &__message {
-        &--error {
-            color: red;
+    &__snackbar {
+        font-size: 16px;
+
+        ::v-deep .v-snack__wrapper {
+            box-shadow: $card-shadow--dark;
         }
     }
 }

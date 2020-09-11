@@ -1,9 +1,9 @@
 <template>
     <v-app light>
         <Header :menu="menuItems" />
-        <v-content>
+        <v-main>
             <nuxt />
-        </v-content>
+        </v-main>
         <Footer :menu="menuItems" />
     </v-app>
 </template>

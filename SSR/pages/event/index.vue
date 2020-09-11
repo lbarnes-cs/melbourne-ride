@@ -21,12 +21,19 @@ export default {
     },
 
     async asyncData({ $http, store }) {
-        if (!store.state.event.length) {
-            const [eventPage] = await $http.$get(
-                API_ENDPOINTS.baseURL + API_ENDPOINTS.event,
-            );
+        const [eventPage] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.event,
+        );
 
-            store.commit("EventPage", eventPage);
+        store.commit("EventPage", eventPage);
+
+        // Hero Banner
+        const [themeSettings] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.themeSettings,
+        );
+
+        if (themeSettings.acf) {
+            store.commit("ThemeSettings", themeSettings.acf);
         }
     },
 
@@ -34,6 +41,12 @@ export default {
         eventPage() {
             return this.$store.state.event;
         },
+    },
+
+    head() {
+        return {
+            title: "Upcoming event",
+        };
     },
 };
 </script>

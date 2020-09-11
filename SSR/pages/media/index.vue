@@ -49,7 +49,6 @@
 
         <v-dialog
             v-model="displayDialog"
-            width="unset"
             content-class="dialogWindow"
             :overlay-opacity="0.8"
         >
@@ -120,6 +119,12 @@ export default {
             this.videoId = null;
             this.displayDialog = false;
         },
+    },
+
+    head() {
+        return {
+            title: "Media",
+        };
     },
 };
 </script>

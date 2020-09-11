@@ -19,7 +19,7 @@ p.title {
     margin-bottom: map-get($spaces, "triple");
 }
 
-a.link,
+.link,
 p a,
 p a:visited,
 p a:active {
@@ -42,6 +42,15 @@ p a:active {
             map-get($red, "lighten-3") 100%
         );
         background-size: 100% 0.2em;
-        background-position: 0 88%;
+        background-position: 0 92%;
     }
+
+}
+
+.linkIcons {
+  text-decoration: none;
+
+  span {
+    @extend .link
+  }
 }

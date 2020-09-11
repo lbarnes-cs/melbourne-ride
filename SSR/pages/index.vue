@@ -6,7 +6,7 @@
             </v-container>
         </section>
 
-        <section class="section section--indigo  white--text">
+        <section class="section section--indigo white--text">
             <v-container>
                 <AboutUs home />
             </v-container>
@@ -28,9 +28,16 @@
             </v-container>
         </section>
 
-        <section class="section section--purple  white--text">
+        <section class="section section--purple white--text">
             <v-container>
                 <Supporters v-bind="supportPage" />
+            </v-container>
+        </section>
+
+        <section class="section section--blue white--text">
+            <v-container>
+                <Header title="title" subline="content" />
+                <NewsletterSubscription header />
             </v-container>
         </section>
     </div>
@@ -44,6 +51,8 @@ import History from "@/components/organisms/history.vue";
 import FAQs from "@/components/organisms/faqs-cards.vue";
 import Supporters from "@/components/organisms/supporters.vue";
 import FeatureGallery from "@/components/organisms/feature-gallery.vue";
+import NewsletterSubscription from "@/components/molecules/card/newsletterSubscription.vue";
+
 import { API_ENDPOINTS } from "@/data/api-config";
 
 export default {
@@ -57,9 +66,19 @@ export default {
         FAQs,
         Supporters,
         FeatureGallery,
+        NewsletterSubscription,
     },
 
     async asyncData({ $http, store }) {
+        // Hero Banner
+        const [themeSettings] = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.themeSettings,
+        );
+
+        if (themeSettings.acf) {
+            store.commit("ThemeSettings", themeSettings.acf);
+        }
+
         // About Page
         const [about] = await $http.$get(
             API_ENDPOINTS.baseURL + API_ENDPOINTS.about,
@@ -170,6 +189,11 @@ export default {
         eventPage() {
             return this.$store.state.event;
         },
+    },
+    head() {
+        return {
+            title: "As Bare As You Dare",
+        };
     },
 };
 </script>

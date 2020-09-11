@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="contast">
+    <div class="contact">
         <section class="section section--light">
             <v-container light>
                 <Header
@@ -7,12 +7,23 @@
                     :subline="contactPage.subline"
                 />
 
-                <v-row>
-                    <v-col cols="12" md="4">
-                        <ContactDetails :social-links="socialItems" />
+                <v-row class="contact__container">
+                    <v-col cols="12" sm="5" md="4" lg="3">
+                        <ContactDetails
+                            :navigation-header="
+                                contactPage.socialNavigationTitle
+                            "
+                            :social-links="socialMedia"
+                        />
                     </v-col>
-                    <v-col cols="12" md="8">
-                        <ContactForm :submit-button="contactPage.submitBtn" />
+                    <v-col cols="12" sm="6" md="7" lg="8" offset-sm="1">
+                        <ContactForm
+                            :form-header="contactPage.contactFormTitle"
+                            :submit-button="contactPage.submitBtn"
+                            :newsletter-subscription-text="
+                                contactPage.newsletterSubscriptionText
+                            "
+                        />
                     </v-col>
                 </v-row>
             </v-container>
@@ -21,7 +32,7 @@
 </template>
 
 <script>
-import { socialMedia } from "@/data/navigation-config";
+import { mapGetters } from "vuex";
 import { API_ENDPOINTS } from "@/data/api-config";
 
 import Header from "@/components/molecules/title/header.vue";
@@ -34,7 +45,6 @@ export default {
         ContactDetails,
         ContactForm,
     },
-
     async asyncData({ $http, params, error, store }) {
         let [contactPage] = await $http.$get(
             API_ENDPOINTS.baseURL + API_ENDPOINTS.contactPage,
@@ -46,18 +56,28 @@ export default {
             title: contactPage.title.rendered,
             content: contactPage.content.rendered,
             subline: contactPage.acf.subline,
-            submitBtn: contactPage.acf.submit_button,
+            contactFormTitle: contactPage.acf.contactFormTitle,
+            submitBtn: contactPage.acf.submitButton,
+            socialNavigationTitle: contactPage.acf.socialNavigationTitle,
+            newsletterSubscriptionText:
+                contactPage.acf.newsletterSubscriptionText,
         };
 
         return { contactPage };
     },
 
     computed: {
-        socialItems() {
-            return socialMedia;
-        },
+        ...mapGetters({
+            socialMedia: "socialMedia",
+        }),
+    },
+
+    head() {
+        return {
+            title: "Contact",
+        };
     },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>

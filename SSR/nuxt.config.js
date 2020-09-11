@@ -1,14 +1,17 @@
 const colors = require("vuetify/es5/util/colors").default;
-// import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+const axios = require('axios').default;
 
 module.exports = {
+    target: 'static',
     mode: "universal",
+    crawler: true,
+
     /*
      ** Headers of the page
      */
     head: {
-        titleTemplate: "%s - " + process.env.npm_package_name,
-        title: process.env.npm_package_name || "",
+        title: "Melbourne Ride" || "",
+        titleTemplate: "%s | Melbourne Ride",
         htmlAttrs: {
             lang: "en",
         },
@@ -23,13 +26,33 @@ module.exports = {
                 name: "description",
                 content: process.env.npm_package_description || "",
             },
+            {
+                property: 'og:image',
+                content: './facebook-banner.png',
+            },
+            {
+                property: 'og:locale', content: 'en_US'
+              },
+              {
+                property: 'og:type', content: 'website',
+              },
+              {
+                property: 'og:title', content: 'Melbourne Ride',
+              },
+              {
+                property: 'og:description', content: 'Grab your helmets, bike and decorare your bikes, as it\'s time to help raise awareness for cyclist safety and promote environmentally friendly transportation alternative.',
+              },
+               {
+                 property: 'og:site_name', content: 'Melbourne Ride',
+           },
+
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: "#fff" },
+    loading: { color: colors.red.darken1 },
     /*
      ** Global CSS
      */
@@ -38,7 +61,7 @@ module.exports = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        // '@plugins/vuetify'
+        "@plugins/filters",
     ],
     /*
      ** Nuxt.js dev-modules
@@ -48,6 +71,8 @@ module.exports = {
         "@nuxtjs/svg-sprite",
         "@nuxtjs/eslint-module",
         "@nuxtjs/vuetify",
+        "@nuxtjs/recaptcha",
+        "@nuxtjs/google-analytics"
     ],
     /*
      ** Nuxt.js modules
@@ -57,12 +82,17 @@ module.exports = {
         "@nuxtjs/axios",
         // Doc: https://github.com/nuxt-community/dotenv-module
         "@nuxtjs/dotenv",
+        // Doc: https://http.nuxtjs.org/
+        "@nuxt/http",
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {},
+    axios: {
+        baseURL: 'localhost:3000/wp',
+    },
+
     /*
      ** vuetify module configuration
      ** https://github.com/nuxt-community/vuetify-module
@@ -73,9 +103,9 @@ module.exports = {
         materialIcons: true,
         customVariables: ["~/assets/variables.scss"],
         theme: {
-            dark: true,
+            dark: false,
             themes: {
-                dark: {
+                light: {
                     primary: colors.red.darken1,
                     accent: colors.grey.darken3,
                     secondary: colors.amber.darken3,
@@ -88,8 +118,40 @@ module.exports = {
         },
     },
 
+    recaptcha: {
+      hideBadge: false,
+      language: 'en',
+      siteKey: '',
+      version: 3,
+      size: 'normal',
+    },
+
     svgSprite: {
         input: "~/assets/svg/",
+    },
+
+    generate: {
+        routes: () => {
+            const previousRides = axios.get('http://localhost:3000/wp-json/wp/v2/album').then((res) => {
+                return res.data.map((post) => {
+                    return route: 'previous-rides/' + post.slug
+                })
+            })
+
+            const faqs = axios.get('http://localhost:3000/wp-json/wp/v2/faq?per_page=100').then((res) => {
+                return res.data.map((post) => route: 'faqs/' + post.slug,
+                })
+            })
+
+
+            return Promise.all([previousRides, faqs]).then(values => {
+                return [...values[0], ...values[1]]
+            })
+        }
+    },
+
+    googleAnalytics: {
+      id: "UA-1234-1"
     },
 
     /*
@@ -99,15 +161,8 @@ module.exports = {
         /*
          ** You can extend webpack config here
          */
-        // transpile: ['vuetify/lib'],
-        // plugins: [new VuetifyLoaderPlugin()],
         extractCSS: { ignoreOrder: true },
         extend(config, ctx) {},
     },
 
-    // srcDir: 'client/',
-
-    router: {
-        // base: '2020/',
-    },
 };

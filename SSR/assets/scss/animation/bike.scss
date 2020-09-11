@@ -2,7 +2,10 @@
     position: absolute;
     left: 0;
     width: 225px;
-    animation: cycling 15s ease-in infinite;
+
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      animation: cycling 15s ease-in infinite;
+    }
 
     &:hover {
         animation-play-state: paused;
@@ -25,11 +28,15 @@
 }
 
 .wheel {
-    animation: spin 4s infinite linear;
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      animation: spin 4s infinite linear;
+    }
 }
 
 .crank {
-    animation: spin 4s infinite linear;
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      animation: spin 4s infinite linear;
+    }
 }
 
 @keyframes spin {
@@ -42,12 +49,15 @@
 }
 
 .chain {
-    animation: movechain 0.2s normal linear infinite;
     fill: none;
     stroke: rgba(0, 0, 0, 0.5);
     stroke-width: 1px;
     stroke-dasharray: 5;
     stroke-dashoffset: 5;
+
+    @media #{map-get($display-breakpoints, 'md-and-up')} {
+      animation: movechain 0.2s normal linear infinite;
+    }
 }
 
 @keyframes movechain {

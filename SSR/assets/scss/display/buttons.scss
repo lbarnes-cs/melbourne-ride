@@ -1,0 +1,18 @@
+.btn--wide {
+    flex-flow: column;
+    width: 100%;
+
+    @media #{map-get(
+        $display-breakpoints,
+        "sm-and-up"
+    )} {
+        width: auto;
+    }
+
+    &.v-btn.v-size--default {
+        padding: map-get($spaces, "half");
+        height: auto;
+        white-space: normal;
+        text-align: center;
+    }
+}

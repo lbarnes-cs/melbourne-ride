@@ -25,12 +25,10 @@ export default {
             API_ENDPOINTS.baseURL + API_ENDPOINTS.supportersPage,
         );
 
-        if (!store.state.supporters.length) {
-            const supporters = await $http.$get(
-                API_ENDPOINTS.baseURL + API_ENDPOINTS.supporters,
-            );
-            store.commit("SupportersPosts", supporters);
-        }
+        const supporters = await $http.$get(
+            API_ENDPOINTS.baseURL + API_ENDPOINTS.supporters,
+        );
+        store.commit("SupportersPosts", supporters);
 
         return {
             page: {
@@ -44,6 +42,12 @@ export default {
         supporters() {
             return this.$store.state.supporters;
         },
+    },
+
+    head() {
+        return {
+            title: "Supporters",
+        };
     },
 };
 </script>

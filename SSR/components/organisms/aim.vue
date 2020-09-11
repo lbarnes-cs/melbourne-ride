@@ -1,7 +1,7 @@
 <template lang="html">
     <div id="aim" class="aims white--text">
         <h2 class="display-2">{{ this.$store.state.aims.title }}</h2>
-        <p class="title" v-html="this.$store.state.aims.subline" />
+        <p class="aims__title title" v-html="this.$store.state.aims.subline" />
 
         <v-row>
             <v-col
@@ -48,6 +48,10 @@ export default {
 
 <style lang="scss" scoped>
 .aims {
+    &__title {
+        margin-bottom: map-get($spaces, "triple");
+    }
+
     &__readMore {
         display: flex;
         justify-content: center;

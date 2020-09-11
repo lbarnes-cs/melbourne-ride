@@ -7,11 +7,11 @@
                         mdi-bicycle
                     </v-icon>
                     <span class="title blue--text lighten-1">
-                        WNBR
+                        Melbourne
                         <span
                             class="red--text text--lighten-1 font-weight-light"
                         >
-                            Melbourne
+                            Ride
                         </span>
                     </span>
                 </nuxt-link>

@@ -32,6 +32,12 @@ export default {
         store.commit("AboutPage", about);
         store.commit("AimsPosts", about.acf);
     },
+
+    head() {
+        return {
+            title: "About",
+        };
+    },
 };
 </script>
 

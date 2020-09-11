@@ -547,6 +547,7 @@ export default {
     z-index: 6;
     animation-delay: 0.3s;
     animation-duration: 12.5s;
+    left: 150px;
 
     .wheel {
         transform-origin: 37.4px (121.3px + 1px); // add some bounce to the wheel

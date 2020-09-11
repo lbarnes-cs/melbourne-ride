@@ -49,11 +49,13 @@
                 </v-btn>
 
                 <div v-if="!home" class="event__furtherInfo">
+                    <newsletter-subscription />
                     <template v-for="(section, index) in contentBuilder">
                         <EventSection
                             v-if="section.published"
                             :key="index"
                             v-bind="section"
+                            :hide-button-cta="hideButtonCta"
                         />
                     </template>
                 </div>
@@ -68,6 +70,7 @@ import { format } from "date-fns-tz";
 import { enAU } from "date-fns/locale";
 import EventSection from "@/components/molecules/event/section.vue";
 import ActionCard from "@/components/molecules/card/actionCard.vue";
+import NewsletterSubscription from "@/components/molecules/card/newsletterSubscription.vue";
 
 export default {
     name: "Event",
@@ -75,6 +78,7 @@ export default {
     components: {
         EventSection,
         ActionCard,
+        NewsletterSubscription,
     },
 
     props: {
@@ -105,6 +109,9 @@ export default {
             type: Boolean,
             required: false,
             default: false,
+        },
+        hideButtonCta: {
+            type: String,
         },
     },
 
